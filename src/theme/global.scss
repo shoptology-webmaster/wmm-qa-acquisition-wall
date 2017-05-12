@@ -1,0 +1,11 @@
+.no-scroll {
+	overflow-y: hidden;
+
+	.scroll-content {
+		overflow-y: hidden;
+	}
+}
+
+.hidden {
+	display: none;
+}

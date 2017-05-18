@@ -1,0 +1,27 @@
+<ion-content padding>
+
+    <div class="setup-wrap flex-center">
+        <div class="setup-wrap-inner">
+            <h2>Setup</h2>
+            <form (ngSubmit)="save($event)">
+                <div class="form-group" *ngFor="let input of inputs">
+                    <label for="name">{{ input.display_name }}</label>
+                    <input type="number" class="form-control" [(ngModel)]="model[input.name]" name="{{input.name}}" required>
+                </div>
+                <div class="button-wrap">
+                    <button type="submit" class="btn btn-primary-orange">Save</button>
+                </div>
+            </form>
+
+			<div class="env">
+				<li>Version: {{ env.version }}</li>
+				<li>API Url: {{ env.apiUrl }}</li>
+				<li>Analytics Timings Sample Size: {{ env.timerSampleSize }}%</li>
+				<li>Analytics: {{ env.analytics }}</li>
+				<li>Crash Reporting: {{ env.crashReporting }}</li>
+				<li>Service Workers: {{ env.serviceWorkers }}</li>
+			</div>
+        </div>
+    </div>
+
+</ion-content>

@@ -1,0 +1,23 @@
+import { NgModule }      from '@angular/core';
+import { CommonModule }  from '@angular/common';
+import { FormsModule }   from '@angular/forms';
+import { IonicModule } from 'ionic-angular';
+
+@NgModule({
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule
+	],
+	declarations: [
+
+	],
+	providers: [
+
+	],
+	exports: [
+		CommonModule,
+		FormsModule
+	]
+})
+export class SharedModule { }

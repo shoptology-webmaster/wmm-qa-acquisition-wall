@@ -1,0 +1,59 @@
+<ion-content padding>
+
+	<div class="main-btn-wrap">
+
+		<!-- Find -->
+		<a (touchstart)="goToFind()" (click)="goToFind()" class="main-btn btn-find">
+			<div class="main-btn-text-wrap">
+				<span class="find-label">Find</span>
+				<span class="find-desc">
+					<span>Tap to search thousands of toys</span>
+				</span>
+			</div>
+			<div class="main-btn-video-wrap">
+				<video width="311" height="450" autoplay loop>
+					<source src="/assets/video/toys/passive_find.webm" type="video/webm">
+				</video>
+			</div>
+		</a>
+
+		<!-- Play -->
+		<a (click)="goToExperience()"  class="main-btn btn-play" *ngIf="isPlayEnabled">
+			<div class="main-btn-text-wrap">
+				<span class="find-label">Play</span>
+				<span class="find-desc">
+					<span>Try the <br> Claw Challenge</span>
+				</span>
+			</div>
+			<div class="main-btn-video-wrap">
+				<video width="311" height="450" autoplay loop>
+					<source src="/assets/video/toys/passive_play.webm" type="video/webm">
+				</video>
+			</div>
+		</a>
+		<!-- TMP Play button. Will be removed and replaced with above ^-->
+		<a class="main-btn btn-play btn-play-tmp" *ngIf="!isPlayEnabled">
+			<div class="tmp-overlay">
+				<img src="/assets/img/coming-soon.png">
+			</div>
+			<div class="main-btn-text-wrap">
+				<span class="find-label">Play</span>
+				<span class="find-desc">
+					<span>Try the <br> Claw Challenge</span>
+				</span>
+			</div>
+			<div class="main-btn-video-wrap">
+				<video width="311" height="450">
+					<source src="/assets/video/toys/passive_play.webm" type="video/webm">
+				</video>
+			</div>
+		</a>
+		<!-- /END TMP Play -->
+	</div>
+
+	<!--<footer class="app-footer">
+		<img src="/assets/img/splat-light.png" class="splat-img">
+		<img src="/assets/img/ui-img-new-features.png" class="featured-img">
+	</footer>-->
+</ion-content>
+

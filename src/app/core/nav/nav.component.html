@@ -1,1 +1,7 @@
-<h1>Nav</h1>
+<div [class.hidden]="!navService.options.visible" class="side-nav">
+	<a (click)="goHome()" [class.hidden]="!navService.options.showHome" class="btn-home icon icon-home"><span>Menu</span></a>
+
+	<a (click)="toggleAccessibilityMode()" [class.hidden]="!navService.options.showAccessibilityMode" class="btn-accessibility icon icon-accessibility">
+		<span>Access</span>
+	</a>
+</div>

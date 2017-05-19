@@ -7,6 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 import { PassivePage } from './passive/passive.page';
 import { LoadPage } from './load/load.page';
 import { SetupPage } from './setup/setup.page';
+import { ChooseSlidePage } from './choose-slide/choose-slide.page';
+import { ExhibitPage } from './exhibit/exhibit.page';
 
 @NgModule({
 	imports: [
@@ -18,7 +20,9 @@ import { SetupPage } from './setup/setup.page';
 	declarations: [
 		PassivePage,
 		LoadPage,
-		SetupPage
+		SetupPage,
+		ChooseSlidePage,
+		ExhibitPage
 	],
 	providers: [
 
@@ -26,12 +30,16 @@ import { SetupPage } from './setup/setup.page';
 	exports: [
 		PassivePage,
 		LoadPage,
-		SetupPage
+		SetupPage,
+		ChooseSlidePage,
+		ExhibitPage
 	],
 	entryComponents: [
 		PassivePage,
 		LoadPage,
-		SetupPage
+		SetupPage,
+		ChooseSlidePage,
+		ExhibitPage
 	]
 })
 export class PagesModule { }

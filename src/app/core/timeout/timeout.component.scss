@@ -1,40 +1,169 @@
-wmmt-timeout {
+ko-timeout {
+	//========================== Modal Object
 
+	// modal bg
 	.modal {
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 1001;
-		background: rgba(0,0,0,0.5);
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0, .85);
+		z-index: 999999;
 	}
 
+	.overlay {
+		width: 100%;
+		height: 100%;
+	}
+
+	// .modal {
+	// 	visibility: hidden;
+	// }
+
+	// modal state
+	// .modal.open {
+	// 	visibility: visible;
+	// }
+
+	// wrapper for the modal
 	.modal-container {
-		width: 30%;
-		height: 30%;
-		background: white;
-		color: black;
 		position: absolute;
+		width: 80%;
+		height: 966px;
+		left: 20%;
 		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		display: flex;
-		flex-direction: column;
-		font-size: 24px;
-		text-align: center;
+		margin-left: -10%;
+		margin-top: -40%;
+		border-radius: 10px; // cut off the bottom
 	}
 
-	.modal-header {
-		flex: 10;
+	.modal-header h2 {
+		color: #fff;
+		text-align: center;
+		font-weight: 800;
 	}
 
 	.modal-body {
-		flex: 80;
+		width: 100%;
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: -0.602px 0.799px 24.94px 4.06px rgba(0, 0, 0, 0.1);
+		max-height: 900px;
+		overflow-y: scroll;
+		position: relative;
+		overflow-x: hidden;
+		padding: 45px;
+
+		flex-wrap: wrap;
+		display: flex;
+		height: 900px;
+	}
+
+	// kill bg on the scroll bar
+	.modal-body::-webkit-scrollbar-track {
+		// background: transparent;
+		background-color: #e3e3e3;
+	}
+
+	.modal-body::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	.modal-body::-webkit-scrollbar-thumb {
+		background-color: #a4a4a4;
 	}
 
 	.modal-footer {
-		flex: 10;
+		width: 100%;
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		text-align: center;
+		z-index: 999;
 	}
+
+	.modal-footer .btn, .btn-primary-orange {
+		color: #fff;
+		padding: 15px;
+		background-image: -webkit-linear-gradient(90deg, #ff6000 0%, #ff8f00 100%);
+		text-shadow: 0.518px 1.932px 0px rgba(0, 0, 0, 0.15);
+		border-radius: 100px;
+		font-size: 2.5vw;
+		font-weight: 800;
+		min-width: 305px;
+		display: inline-block;
+	}
+
+	// filter modal
+	.modal .filter {
+		width: 33.3333%;
+		float: left;
+		// flex: 1;
+	}
+
+	.modal .filter .label {
+		font-size: 3vw;
+		font-weight: 800;
+		color: blue;
+	}
+
+	.modal .close-icon {
+		position: absolute;
+		right: -18px;
+		top: -20px;
+		background: #e6e6e6;
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		z-index: 99;
+		box-shadow: 0 0 13px 3px rgba(0,0,0,0.5);
+
+		img {
+			width: 20px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			height: auto;
+			margin: 0;
+		}
+
+	}
+
+
+	// Modal Animation
+	// .modal {
+	// 	transition: all .6s;
+	// 	opacity: 0;
+	// }
+
+	// .open.modal {
+	// 	opacity: 1;
+	// }
+
+	.modal-container {
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-webkit-transform: translateX(-50%) translateY(-50%);
+		-moz-transform: translateX(-50%) translateY(-50%);
+		-ms-transform: translateX(-50%) translateY(-50%);
+		transform: translateX(-50%) translateY(-50%);
+	}
+
+	.modal-container {
+		transform: translateY(10%);
+		opacity: 0;
+		transition: all .6s;
+	}
+
+	.open .modal-container {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	// Modal Animation !
+
+	//========================== Modal Object !
 
 }

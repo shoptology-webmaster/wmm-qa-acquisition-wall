@@ -1,0 +1,7 @@
+<ion-content>
+	<h1>Choose Slide</h1>
+
+	<div *ngFor="let exhibit of exhibits | async">
+		<button ion-button (click)="goToExhibit(exhibit)">{{ exhibit.name }}</button>
+	</div>
+</ion-content>

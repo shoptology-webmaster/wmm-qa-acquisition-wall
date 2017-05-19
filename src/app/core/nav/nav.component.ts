@@ -1,4 +1,4 @@
-import { PassivePage } from './../../pages/passive/passive.page';
+import { ChooseSlidePage } from './../../pages/choose-slide/choose-slide.page';
 import { environment } from './../../../environment/environment';
 import { Component, Input } from '@angular/core';
 
@@ -92,7 +92,7 @@ export class NavComponent {
 		}
 
 		let view = this.navCtrl.getActive();
-		this.navCtrl.push(PassivePage, {}, {
+		this.navCtrl.push(ChooseSlidePage, {}, {
 			direction: 'back'
 		});
 		if (this.navService.isSearchModalOpen) {

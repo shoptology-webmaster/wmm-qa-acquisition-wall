@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ChooseSlidePage } from './../choose-slide/choose-slide.page';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { NavService } from '../../core/nav/nav.service';
@@ -19,6 +20,8 @@ import { DeviceService } from './../../core/device/device.service';
 })
 export class PassivePage {
 
+	@ViewChild('loopVideo') loopVideo: ElementRef;
+
 	constructor(
 		private navCtrl: NavController,
 		private navService: NavService,
@@ -36,6 +39,7 @@ export class PassivePage {
 		// If we haven't configured the root page, set it up
 		// mark it as set in navService
 		this.reset();
+		this.loopVideo.nativeElement.play();
 
 		this.deviceService.isUpToDate()
 			.subscribe((result) => {
@@ -54,7 +58,9 @@ export class PassivePage {
 		this.navService.options.visible = false;
 	}
 
-	ionViewWillLeave() {}
+	ionViewWillLeave() {
+		this.loopVideo.nativeElement.pause();
+	}
 
 
 	/**
@@ -64,13 +70,14 @@ export class PassivePage {
 	 *
 	 * @memberOf PassiveComponent
 	 */
-	public goToFind(): void {
+	public goToChooseSlide(): void {
 		this.crashReportingService.setUserContext({
 			id: Date.now().toString()
 		});
 		this.analyticsService.startSession();
-		this.analyticsService.sendEvent('Passive', 'tap', 'GoToFind');
+		this.analyticsService.sendEvent('Passive', 'tap', 'GoToChooseSlide');
 		this.reloadService.stopTimer();
+		this.navCtrl.push(ChooseSlidePage);
 	}
 
 

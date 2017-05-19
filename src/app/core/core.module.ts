@@ -1,3 +1,4 @@
+import { ExhibitService } from './exhibit/exhibit.service';
 import { PagesModule } from './../pages/pages.module';
 import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -36,6 +37,7 @@ import { ReloadService } from './reload/reload.service';
 		AnalyticsService,
 		AnalyticsTimerService,
 		CrashReportingService,
+		ExhibitService,
 		{ provide: ErrorHandler, useClass: CrashReportingErrorHandler }
 	]
 })

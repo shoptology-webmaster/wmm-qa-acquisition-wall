@@ -20,7 +20,9 @@ import { MyApp } from './app.component';
 	PagesModule,
 	CoreModule,
 	IonicStorageModule.forRoot(),
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+		swipeBackEnabled: false
+	})
   ],
   bootstrap: [IonicApp],
   entryComponents: [

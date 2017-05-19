@@ -5,6 +5,7 @@ export interface ExhibitState {
 export interface Exhibit {
 	name: string;
 	logo: string;
+	color?: string;
 	slides: Slide[]
 }
 
@@ -16,7 +17,8 @@ export interface Slide {
 export const ExhibitsMock: Exhibit[] = [
 	{
 		name: 'Jet',
-		logo: '',
+		color: '#733DE2',
+		logo: '/assets/img/logo_jet.png',
 		slides: [
 			{
 				type: '',
@@ -46,7 +48,8 @@ export const ExhibitsMock: Exhibit[] = [
 	},
 	{
 		name: 'Bonobos',
-		logo: '',
+		color: '#FFFFFF',
+		logo: '/assets/img/logo_bonobos.png',
 		slides: [
 			{
 				type: '',
@@ -76,7 +79,8 @@ export const ExhibitsMock: Exhibit[] = [
 	},
 	{
 		name: 'HeyNeedle',
-		logo: '',
+		color: '#FFFFFF',
+		logo: '/assets/img/logo_heyneedle.png',
 		slides: [
 			{
 				type: '',
@@ -106,7 +110,8 @@ export const ExhibitsMock: Exhibit[] = [
 	},
 	{
 		name: 'Modcloth',
-		logo: '',
+		color: '#FFFFFF',
+		logo: '/assets/img/logo_modcloth.png',
 		slides: [
 			{
 				type: '',
@@ -136,7 +141,8 @@ export const ExhibitsMock: Exhibit[] = [
 	},
 	{
 		name: 'Moosejaw',
-		logo: '',
+		color: '#9A0000',
+		logo: '/assets/img/logo_moosejaw.png',
 		slides: [
 			{
 				type: '',
@@ -166,7 +172,8 @@ export const ExhibitsMock: Exhibit[] = [
 	},
 	{
 		name: 'Shoebuy',
-		logo: '',
+		color: '#0042A8',
+		logo: '/assets/img/logo_shoebuy.png',
 		slides: [
 			{
 				type: '',

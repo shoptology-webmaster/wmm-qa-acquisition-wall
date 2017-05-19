@@ -1,7 +1,8 @@
 <ion-content>
-	<h1>Choose Slide</h1>
+	<h1>Select a company.</h1>
 
-	<div *ngFor="let exhibit of exhibits | async">
-		<button ion-button (click)="goToExhibit(exhibit)">{{ exhibit.name }}</button>
+	<div class="container" [style.background-color]="exhibit.color" *ngFor="let exhibit of exhibits | async" (click)="goToExhibit(exhibit)">
+		<img [src]="exhibit.logo">
+		<!--<button ion-button >{{ exhibit.name }}</button>-->
 	</div>
 </ion-content>

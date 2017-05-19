@@ -59,7 +59,7 @@ export class PassivePage {
 	}
 
 	ionViewWillLeave() {
-		this.loopVideo.nativeElement.pause();
+
 	}
 
 
@@ -77,6 +77,7 @@ export class PassivePage {
 		this.analyticsService.startSession();
 		this.analyticsService.sendEvent('Passive', 'tap', 'GoToChooseSlide');
 		this.reloadService.stopTimer();
+		this.loopVideo.nativeElement.pause();
 		this.navCtrl.push(ChooseSlidePage);
 	}
 

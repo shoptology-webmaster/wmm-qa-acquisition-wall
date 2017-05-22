@@ -1,3 +1,4 @@
+import { SlidesService } from './../../shared/slides.service';
 import { ChooseSlidePage } from './../choose-slide/choose-slide.page';
 import { Exhibit } from './../../core/exhibit/exhibit.model';
 import { Component, ViewChild } from '@angular/core';
@@ -28,12 +29,15 @@ export class ExhibitPage {
 		private navService: NavService,
 		private navParams: NavParams,
 		private analyticsService: AnalyticsService,
+		private slidesService: SlidesService
 	) {}
 
 	ionViewWillEnter() {
 		this.navService.options.visible = true;
 		this.navService.options.showHome = true;
 		this.navService.options.showAccessibilityMode = false;
+
+		this.slidesService.setCurrentSlide(0);
 
 		if (this.navParams.get('exhibit')) {
 			this.exhibit = this.navParams.get('exhibit');
@@ -45,9 +49,10 @@ export class ExhibitPage {
 	}
 
 	slideChanged() {
-		this.currentIndex = this.slides.getActiveIndex() + 1;
+		this.currentIndex = this.slides.getActiveIndex();
+		this.slidesService.setCurrentSlide(this.currentIndex);
 
-		if (this.currentIndex >= this.slides.length()) {
+		if (this.currentIndex >= this.slides.length() - 1) {
 			this.nextToMenu = true;
 		} else {
 			this.nextToMenu = false;

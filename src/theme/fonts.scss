@@ -1,0 +1,29 @@
+@font-face {
+   font-family: 'Bogle';
+      src: url('../assets/fonts/BogleWeb-Regular.eot');
+      src: url('../assets/fonts/BogleWeb-Regular.eot?#iefix') format('embedded-opentype'),
+           url('../assets/fonts/BogleWeb-Regular.woff') format('woff'),
+           url('../assets/fonts/BogleWeb-Regular.ttf') format('truetype'),
+           url('../assets/fonts/BogleWeb-Regular.svg#UbuntuItalic') format('svg');
+   font-weight: 400;
+}
+
+@font-face {
+   font-family: 'Bogle';
+      src: url('../assets/fonts/BogleWeb-Bold.eot');
+      src: url('../assets/fonts/BogleWeb-Bold.eot?#iefix') format('embedded-opentype'),
+           url('../assets/fonts/BogleWeb-Bold.woff') format('woff'),
+           url('../assets/fonts/BogleWeb-Bold.ttf') format('truetype'),
+           url('../assets/fonts/BogleWeb-Bold.svg#UbuntuItalic') format('svg');
+   font-weight: 700;
+}
+
+@font-face {
+   font-family: 'Bogle';
+      src: url('../assets/fonts/BogleWeb-Black.eot');
+      src: url('../assets/fonts/BogleWeb-Black.eot?#iefix') format('embedded-opentype'),
+           url('../assets/fonts/BogleWeb-Black.woff') format('woff'),
+           url('../assets/fonts/BogleWeb-Black.ttf') format('truetype'),
+           url('../assets/fonts/BogleWeb-Black.svg#UbuntuItalic') format('svg');
+   font-weight: 900;
+}

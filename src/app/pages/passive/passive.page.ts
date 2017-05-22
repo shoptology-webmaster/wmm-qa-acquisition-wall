@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { ChooseSlidePage } from './../choose-slide/choose-slide.page';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -21,6 +22,12 @@ import { DeviceService } from './../../core/device/device.service';
 export class PassivePage {
 
 	@ViewChild('loopVideo') loopVideo: ElementRef;
+	public videoUrl: string = '';
+	public videoUrls: string[] = [
+		'/assets/img/mocks/passive-bonobos-moosejaw.mp4',
+		'/assets/img/mocks/passive-jet-modcloth.mp4',
+		'/assets/img/mocks/passive-shoes-heystack.mp4'
+	];
 
 	constructor(
 		private navCtrl: NavController,
@@ -28,7 +35,8 @@ export class PassivePage {
 		private analyticsService: AnalyticsService,
 		private crashReportingService: CrashReportingService,
 		private reloadService: ReloadService,
-		private deviceService: DeviceService
+		private deviceService: DeviceService,
+		private storage: Storage
 	) {}
 
 	ionViewWillEnter() {
@@ -39,23 +47,35 @@ export class PassivePage {
 		// If we haven't configured the root page, set it up
 		// mark it as set in navService
 		this.reset();
-		this.loopVideo.nativeElement.play();
 
-		this.deviceService.isUpToDate()
-			.subscribe((result) => {
-				// console.log('Is up to date?', result);
-				if (!result) {
-					console.log('Version mismatch. Update required.');
-					this.reloadService.startTimer(30000);
-				} else {
-					this.reloadService.startTimer();
-				}
-			}, (err) => {
-				console.log('Error when asking if up to date', err);
-				this.reloadService.startTimer();
-			});
+		// this.deviceService.isUpToDate()
+		// 	.subscribe((result) => {
+		// 		// console.log('Is up to date?', result);
+		// 		if (!result) {
+		// 			console.log('Version mismatch. Update required.');
+		// 			this.reloadService.startTimer(30000);
+		// 		} else {
+		// 			this.reloadService.startTimer();
+		// 		}
+		// 	}, (err) => {
+		// 		console.log('Error when asking if up to date', err);
+		// 		this.reloadService.startTimer();
+		// 	});
 
 		this.navService.options.visible = false;
+
+		// Find the right video to play
+		this.storage.get('kioskNumber')
+			.then((kioskNumber) => {
+				if (kioskNumber) {
+					kioskNumber--;
+				} else {
+					kioskNumber = 0;
+				}
+
+				this.videoUrl = this.videoUrls[kioskNumber];
+				this.loopVideo.nativeElement.play();
+			});
 	}
 
 	ionViewWillLeave() {

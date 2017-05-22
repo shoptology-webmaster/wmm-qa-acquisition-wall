@@ -1,6 +1,7 @@
 import { CoreModule } from './core/core.module';
 import { PagesModule } from './pages/pages.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -16,6 +17,7 @@ import { MyApp } from './app.component';
   ],
   imports: [
     BrowserModule,
+	BrowserAnimationsModule,
 	HttpModule,
 	PagesModule,
 	CoreModule,

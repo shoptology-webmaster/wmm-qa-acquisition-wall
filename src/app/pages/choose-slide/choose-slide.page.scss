@@ -10,10 +10,25 @@ ko-choose-slide {
 		color: white;
 	}
 
+	h1 {
+		font-size: 7vw;
+		margin-top: 0;
+		margin-bottom: 3vh;
+		font-weight: normal;
+	}
+
+	.containers {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
 	.container {
-		width: 40vw;
-		height: 40vw;
-		padding: 20px;
+		width: 24vmax;
+		height: 24vmax;
+		margin: 1vmax;
+		padding: 80px;
 		display: flex;
 		align-items: center;
 		justify-content: center;

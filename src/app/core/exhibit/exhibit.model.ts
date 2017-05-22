@@ -1,3 +1,8 @@
+import { TextSlideComponent } from './../../shared/slides/text-slide.component';
+import { FactTopSlideComponent } from './../../shared/slides/fact-top-slide.component';
+import { FactBottomSlideComponent } from './../../shared/slides/fact-bottom-slide.component';
+import { ProductSlideComponent } from './../../shared/slides/product-slide.component';
+
 export interface ExhibitState {
 	exhibits: Exhibit[]
 }
@@ -10,8 +15,15 @@ export interface Exhibit {
 }
 
 export interface Slide {
-	type: string;
-	img: string;
+	type: any;
+	img?: string;
+	color?: string;
+	accent?: string;
+	logo?: string;
+	title?: string;
+	desc?: string;
+	product?: string;
+	fact?: string;
 }
 
 export const ExhibitsMock: Exhibit[] = [
@@ -21,29 +33,51 @@ export const ExhibitsMock: Exhibit[] = [
 		logo: '/assets/img/logo_jet.png',
 		slides: [
 			{
-				type: '',
-				img: '/assets/img/mocks/Jet/Interact - slide 2.jpg'
+				type: ProductSlideComponent,
+				accent: '#CB68FF',
+				logo: '/assets/img/logo_jet.png',
+				title: 'The biggest thing in shopping since ... shopping',
+				desc: 'Jet.com is changing the way the world shops with innovative technology and a people-centric approach. Moving at the speed of a startup with access to unrivaled resources, the Jet.com team likes to say it’s the best of both worlds.',
+				product: '/assets/img/jet/product-shot.png'
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Jet/Interact - slide 3.jpg'
+				type: FactBottomSlideComponent,
+				img: '/assets/img/jet/2-image.jpg',
+				fact: 'From furniture to electronics to food, Jet.com has it all.'
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Jet/Interact - slide 4.jpg'
+				type: FactTopSlideComponent,
+				img: '/assets/img/jet/3-image.jpg',
+				fact: `
+					<p>Average number of new Jet.com customers each month</p>
+					<p class="big block accent">400,000</p>
+				`
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Jet/Interact - slide 5.jpg'
+				type: TextSlideComponent,
+				logo: '/assets/img/logo_jet.png',
+				product: '/assets/img/jet/text-product.png'
 			}
-			,{
-				type: '',
-				img: '/assets/img/mocks/Jet/Interact - slide 6.jpg'
-			}
-			,{
-				type: '',
-				img: '/assets/img/mocks/Jet/Interact - slide 7.jpg'
-			}
+			// {
+			// 	type: '',
+			// 	img: '/assets/img/mocks/Jet/Interact - slide 3.jpg'
+			// },
+			// {
+			// 	type: '',
+			// 	img: '/assets/img/mocks/Jet/Interact - slide 4.jpg'
+			// },
+			// {
+			// 	type: '',
+			// 	img: '/assets/img/mocks/Jet/Interact - slide 5.jpg'
+			// }
+			// ,{
+			// 	type: '',
+			// 	img: '/assets/img/mocks/Jet/Interact - slide 6.jpg'
+			// }
+			// ,{
+			// 	type: '',
+			// 	img: '/assets/img/mocks/Jet/Interact - slide 7.jpg'
+			// }
 		]
 	},
 	{

@@ -1,10 +1,10 @@
 import {
-	trigger,
-	state,
-	style,
-	transition,
-	animate
-} from '@angular/core';
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 export class Animations {
 

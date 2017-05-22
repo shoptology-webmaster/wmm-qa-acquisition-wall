@@ -74,5 +74,7 @@ $colors: (
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
-@import "noto-sans";
+@import "fonts";
+$font-family-base: "Bogle", Arial, sans-serif;
+$font-family-md-base: $font-family-base;
+$font-family-wp-base: $font-family-base;

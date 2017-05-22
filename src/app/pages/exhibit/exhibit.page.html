@@ -1,7 +1,7 @@
 <ion-content>
-	<ion-slides pager *ngIf="exhibit" (ionSlideDidChange)="slideChanged()">
-		<ion-slide *ngFor="let slide of exhibit.slides">
-			<img [src]="slide.img">
+	<ion-slides pager *ngIf="exhibit" (ionSlideDidChange)="slideChanged()" [ngClass]="exhibit.name" [style.background-color]="exhibit.color">
+		<ion-slide *ngFor="let slide of exhibit.slides; let i = index" [style.background-color]="slide.color">
+			<slide-container [slide]="slide" [idx]="i"></slide-container>
 		</ion-slide>
 	</ion-slides>
 

@@ -1,0 +1,22 @@
+.swiper-slide product-slide {
+	img {
+		width: 25vmax;
+		height: auto;
+		position: static;
+	}
+
+	.title {
+		font-size: 3.1vmax;
+		font-weight: 700;
+		padding: 5vmax 10vw;
+		line-height: 4vmax;
+	}
+
+	.desc {
+		color: white;
+		font-size: 2.4vmax;
+		padding: 0 10vw 7vmax;
+	}
+
+	.product { width: 38vmax }
+}

@@ -59,7 +59,7 @@ export const ExhibitsMock: Exhibit[] = [
 				img: '/assets/img/jet/4-image.png',
 				layout: 'img-bottom',
 				fact: `
-					<p>Number of products available on Jet.com</p>
+					<p>Number of products<br> available on Jet.com</p>
 					<p class="big block accent">12 million</p>
 				`
 			},

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'fact-top-slide',
 	template: `
-		<div *ngIf="isActive | async" class="container">
+		<div *ngIf="isActive | async" class="container" [ngClass]="data.layout">
 			<div @top class="fact" [innerHTML]="data.fact"></div>
 			<img @bottom class="img" [src]="data.img">
 		</div>

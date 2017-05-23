@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Interact-Menu/Normal" transform="translate(-1008.000000, -179.000000)" fill-rule="nonzero" fill="#000000">
+            <g id="Group-3" transform="translate(-2.000000, 0.000000)">
+                <g id="Group" transform="translate(953.000000, 0.000000)">
+                    <g id="arrow-down" transform="translate(74.000000, 196.000000) rotate(-270.000000) translate(-74.000000, -196.000000) translate(57.000000, 179.000000)">
+                        <polygon id="Shape" points="14.875 0 19.125 0 19.125 25.5 30.8125 13.8125 33.83 16.83 17 33.66 0.17 16.83 3.1875 13.8125 14.875 25.5"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

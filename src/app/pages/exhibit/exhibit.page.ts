@@ -1,3 +1,4 @@
+import { fadeInOut } from '../../core/animations';
 import { SlidesService } from './../../shared/slides.service';
 import { ChooseSlidePage } from './../choose-slide/choose-slide.page';
 import { Exhibit } from './../../core/exhibit/exhibit.model';
@@ -15,7 +16,8 @@ import { AnalyticsService } from '../../core/analytics';
  */
 @Component({
 	selector: 'ko-exhibit',
-	templateUrl: './exhibit.page.html'
+	templateUrl: './exhibit.page.html',
+	animations: [fadeInOut('fadeInOut')]
 })
 export class ExhibitPage {
 	@ViewChild(Slides) slides: Slides;
@@ -23,6 +25,7 @@ export class ExhibitPage {
 	public exhibit: Exhibit;
 	public currentIndex: number = 1;
 	public nextToMenu: boolean = false;
+	public showSwipeModal: boolean = true;
 
 	constructor(
 		private navCtrl: NavController,
@@ -44,6 +47,10 @@ export class ExhibitPage {
 
 	ionViewDidEnter() {
 		this.slidesService.setCurrentSlide(0);
+
+		setTimeout(() => {
+			this.showSwipeModal = false;
+		}, 2000);
 	}
 
 	nextSlide() {

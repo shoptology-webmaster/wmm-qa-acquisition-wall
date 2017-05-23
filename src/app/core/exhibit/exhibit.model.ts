@@ -47,10 +47,27 @@ export const ExhibitsMock: Exhibit[] = [
 			},
 			{
 				type: FactTopSlideComponent,
-				img: '/assets/img/jet/3-image.jpg',
+				img: '/assets/img/jet/3-image.png',
 				fact: `
 					<p>Average number of new Jet.com customers each month</p>
 					<p class="big block accent">400,000</p>
+				`
+			},
+			{
+				type: FactTopSlideComponent,
+				img: '/assets/img/jet/4-image.png',
+				fact: `
+					<p>Number of products available on Jet.com</p>
+					<p class="big block accent">12 million</p>
+				`
+			},
+			{
+				type: FactBottomSlideComponent,
+				img: '/assets/img/jet/5-image.jpg',
+				fact: `
+					On launch day,
+					Jet.com had
+					<span class="accent">$1 million in sales.</span>
 				`
 			},
 			{
@@ -58,118 +75,141 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: '/assets/img/logo_jet.png',
 				product: '/assets/img/jet/text-product.png'
 			}
-			// {
-			// 	type: '',
-			// 	img: '/assets/img/mocks/Jet/Interact - slide 3.jpg'
-			// },
-			// {
-			// 	type: '',
-			// 	img: '/assets/img/mocks/Jet/Interact - slide 4.jpg'
-			// },
-			// {
-			// 	type: '',
-			// 	img: '/assets/img/mocks/Jet/Interact - slide 5.jpg'
-			// }
-			// ,{
-			// 	type: '',
-			// 	img: '/assets/img/mocks/Jet/Interact - slide 6.jpg'
-			// }
-			// ,{
-			// 	type: '',
-			// 	img: '/assets/img/mocks/Jet/Interact - slide 7.jpg'
-			// }
 		]
 	},
 	{
-		name: 'Bonobos',
-		color: '#FFFFFF',
-		logo: '/assets/img/logo_bonobos.png',
+		name: 'HayNeedle',
+		color: '#37939B',
+		logo: '/assets/img/logo_hayneedle.png',
 		slides: [
 			{
-				type: '',
-				img: '/assets/img/mocks/Bonobos/Interact - slide 2.jpg'
+				type: ProductSlideComponent,
+				accent: '#61EAF6',
+				logo: '/assets/img/hayneedle/logo.png',
+				title: 'Find everything home',
+				desc: `
+						Hayneedle is a leading online home furnishings
+						and décor retailer that includes the world’s largest
+						outdoor living selection. Hayneedle delivers millions
+						of products and over 3,000 brands — including
+						in-house brands that feature designer
+						looks for a fraction of the cost.
+				`,
+				product: '/assets/img/hayneedle/product-shot.png'
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Bonobos/Interact - slide 3.jpg'
+				type: FactBottomSlideComponent,
+				img: '/assets/img/hayneedle/2-image.jpg',
+				fact: 'Furniture, décor, exclusive designs and more for every space, style and budget.'
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Bonobos/Interact - slide 4.jpg'
+				type: FactTopSlideComponent,
+				img: '/assets/img/hayneedle/3-image.png',
+				fact: `
+					<p>
+						Hayneedle began in 2002 with
+						the purchase of a single online store,
+						Hammocks.com, from  a
+					</p>
+					<p class="big block accent">llama farmer</p>
+				`
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Bonobos/Interact - slide 5.jpg'
-			}
-			,{
-				type: '',
-				img: '/assets/img/mocks/Bonobos/Interact - slide 6.jpg'
-			}
-			,{
-				type: '',
-				img: '/assets/img/mocks/Bonobos/Interact - slide 7.jpg'
-			}
-		]
-	},
-	{
-		name: 'HeyNeedle',
-		color: '#FFFFFF',
-		logo: '/assets/img/logo_heyneedle.png',
-		slides: [
-			{
-				type: '',
-				img: '/assets/img/mocks/HeyNeedle/Interact - slide 2.jpg'
+				type: FactTopSlideComponent,
+				img: '/assets/img/hayneedle/4-image.png',
+				fact: `
+					<p>
+						<span class="accent">
+							Hayneedle has its own photography studio
+						</span> and customer care
+						center in Omaha, Nebraska as well
+						as state-of-the-art fulfillment
+						centers in California and Ohio.
+					</p>
+				`
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/HeyNeedle/Interact - slide 3.jpg'
+				type: FactTopSlideComponent,
+				img: '/assets/img/hayneedle/5-image.png',
+				fact: `
+					<p>
+						Hayneedle employees consume over
+						<span class="accent">4,000 cookies</span> and
+						<span class="accent">5,000 daily bars</span> every year.
+					</p>
+				`
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/HeyNeedle/Interact - slide 4.jpg'
-			},
-			{
-				type: '',
-				img: '/assets/img/mocks/HeyNeedle/Interact - slide 5.jpg'
-			}
-			,{
-				type: '',
-				img: '/assets/img/mocks/HeyNeedle/Interact - slide 6.jpg'
-			}
-			,{
-				type: '',
-				img: '/assets/img/mocks/HeyNeedle/Interact - slide 7.jpg'
+				type: TextSlideComponent,
+				logo: '/assets/img/logo_hayneedle.png',
+				product: '/assets/img/jet/text-product.png'
 			}
 		]
 	},
 	{
 		name: 'Modcloth',
-		color: '#FFFFFF',
+		color: '#9F7A41',
 		logo: '/assets/img/logo_modcloth.png',
 		slides: [
 			{
-				type: '',
-				img: '/assets/img/mocks/Modcloth/Interact - slide 2.jpg'
+				type: ProductSlideComponent,
+				accent: '#E0BF90',
+				logo: '/assets/img/modcloth/logo.png',
+				title: 'Democratizing Fashion One Dress at a Time',
+				desc: `
+						ModCloth is the fun, friendly spot for
+						style and decor that’s as expressive
+						and unique as you are! Inspired by
+						feedback from the community, their
+						exclusive line of apparel is available
+						in a full range of sizes ― because
+						ModCloth believes fashion is for every body.
+				`,
+				product: '/assets/img/modcloth/product-shot.png'
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Modcloth/Interact - slide 3.jpg'
+				type: FactBottomSlideComponent,
+				img: '/assets/img/modcloth/2-image.jpg',
+				fact: 'ModCloth carries a curated selection of styles from hundreds of independent designers.'
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Modcloth/Interact - slide 4.jpg'
+				type: FactBottomSlideComponent,
+				img: '/assets/img/modcloth/3-image.jpg',
+				fact: `
+					<img src="/assets/img/modcloth/3-image-2.png" class="smaller">
+					<br>
+					<br>
+					ModCloth’s #1 internal search term, is “Cats" and they have
+					<span class="accent">over 100 cat-themed styles</span> on
+					our site.
+				`
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Modcloth/Interact - slide 5.jpg'
-			}
-			,{
-				type: '',
-				img: '/assets/img/mocks/Modcloth/Interact - slide 6.jpg'
-			}
-			,{
-				type: '',
-				img: '/assets/img/mocks/Modcloth/Interact - slide 7.jpg'
+				type: FactTopSlideComponent,
+				img: '/assets/img/modcloth/4-image.png',
+				fact: `
+					<p>
+						Here at ModCloth, <span class="accent">our founder’s
+						dog's birthday</span> is a company holiday!
+					</p>
+				`
+			},
+			{
+				type: FactBottomSlideComponent,
+				img: '/assets/img/modcloth/5-image.jpg',
+				fact: `
+					Founded in a <span class="accent">college dorm
+					room</span> by high school
+					sweethearts Susan Gregg Koger and Eric Koger in
+					2002, ModCloth has since grown to over 350
+					employees across offices in San Francisco,
+					Los Angeles and Pittsburgh.
+				`
+			},
+			{
+				type: TextSlideComponent,
+				logo: '/assets/img/logo_modcloth.png',
+				product: '/assets/img/modcloth/text-product.png'
 			}
 		]
 	},
@@ -179,59 +219,207 @@ export const ExhibitsMock: Exhibit[] = [
 		logo: '/assets/img/logo_moosejaw.png',
 		slides: [
 			{
-				type: '',
-				img: '/assets/img/mocks/Moosejaw/Interact - slide 2.jpg'
+				type: ProductSlideComponent,
+				accent: '#FFA900',
+				logo: '/assets/img/logo_moosejaw.png',
+				title: 'Love the Madness',
+				desc: `
+						Moosejaw is a leading online retailer
+						for active outdoor products with 10
+						physical stores. Moosejaw carries
+						more than 400 brands including Patagonia,
+						The North Face, Marmot, Arc’teryx and more.
+				`,
+				product: '/assets/img/moosejaw/product-shot.png'
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Moosejaw/Interact - slide 3.jpg'
+				type: FactBottomSlideComponent,
+				img: '/assets/img/moosejaw/2-image.jpg',
+				fact: 'Apparel and gear for climbing, hiking, camping, snow sports, yoga, swimming and biking.'
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Moosejaw/Interact - slide 4.jpg'
+				type: FactTopSlideComponent,
+				img: '/assets/img/moosejaw/3-image.png',
+				fact: `
+					<p>
+						The name of the company was developed by <span class="accent">throwing a
+						dart at a map</span> and using the name of the city it
+						landed on. Shout out to <span class="accent">Moose Jaw, Canada.</span>
+					</p>
+				`
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Moosejaw/Interact - slide 5.jpg'
-			}
-			,{
-				type: '',
-				img: '/assets/img/mocks/Moosejaw/Interact - slide 6.jpg'
-			}
-			,{
-				type: '',
-				img: '/assets/img/mocks/Moosejaw/Interact - slide 7.jpg'
+				type: FactTopSlideComponent,
+				img: '/assets/img/moosejaw/4-image.png',
+				fact: `
+					<p>
+						The brand's focus is having fun and being friends
+						with customers. <span class="accent">Random games of hide-and-seek
+						and touch football are known to happen</span> in
+						the middle of the store.
+					</p>
+				`
+			},
+			{
+				type: FactTopSlideComponent,
+				img: '/assets/img/moosejaw/5-image.png',
+				fact: `
+					<p>
+						 The company has developed a nontraditional marketing
+						 approach called <span class="accent">Moosejaw Madness."</span> The
+						 company influences customer purchases
+						 and loyalty by <span class="accent">adding humor to all their
+						 communications.</span>
+					</p>
+				`
+			},
+			{
+				type: TextSlideComponent,
+				logo: '/assets/img/logo_moosejaw.png',
+				product: '/assets/img/moosejaw/text-product.png'
 			}
 		]
 	},
 	{
-		name: 'Shoebuy',
-		color: '#0042A8',
-		logo: '/assets/img/logo_shoebuy.png',
+		name: 'Shoes',
+		color: '#253B8D',
+		logo: '/assets/img/logo_shoes.png',
 		slides: [
 			{
-				type: '',
-				img: '/assets/img/mocks/Shoebuy/Interact - slide 2.jpg'
+				type: ProductSlideComponent,
+				accent: '#9BB7FF',
+				logo: '/assets/img/logo_shoes.png',
+				title: 'World\'s largest site for shoes',
+				desc: `
+						Shoes.com is the online shopping destination
+						for women, men and kids — making it easy,
+						fun and affordable to find the shoes you
+						love. Dedicated to each customer’s journey
+						with a great selection and curation, Shoes.com
+						works every day to provide a seamless shoe-shopping experience.
+				`,
+				product: '/assets/img/shoes/product-shot.png'
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Shoebuy/Interact - slide 3.jpg'
+				type: FactBottomSlideComponent,
+				img: '/assets/img/shoes/2-image.jpg',
+				fact: 'Shoes, shoes and more shoes for every occasion.'
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Shoebuy/Interact - slide 4.jpg'
+				type: FactTopSlideComponent,
+				img: '/assets/img/shoes/3-image.png',
+				fact: `
+					<p>
+						Shoes.com's social channels have an
+						organic engagement, drawing in
+						<span class="accent">281k Facebook</span> followers and <span class="accent">148k
+						Instagram followers</span> — more than double
+						those of Zappos!
+					</p>
+				`
 			},
 			{
-				type: '',
-				img: '/assets/img/mocks/Shoebuy/Interact - slide 5.jpg'
+				type: FactTopSlideComponent,
+				img: '/assets/img/shoes/4-image.png',
+				fact: `
+					<p>
+						Shoes.com was founded in 1999 in Boston,
+						Massachusetts, using the site address
+						shoebuy.com. It was one of the <span class="accent">first
+						companies to sell shoes online.</span>
+					</p>
+				`
+			},
+			{
+				type: FactBottomSlideComponent,
+				img: '/assets/img/shoes/5-image.jpg',
+				fact: `
+					Shoes.com carries
+					<span class="accent">more than 800 brands</span>
+					and over a million items including
+					footwear for women, men and kids,
+					as well as clothing and accessories
+					such as outerwear and handbags.
+				`
+			},
+			{
+				type: TextSlideComponent,
+				logo: '/assets/img/logo_shoes.png',
+				product: '/assets/img/shoes/text-product.png'
 			}
-			,{
-				type: '',
-				img: '/assets/img/mocks/Shoebuy/Interact - slide 6.jpg'
-			}
-			,{
-				type: '',
-				img: '/assets/img/mocks/Shoebuy/Interact - slide 7.jpg'
+		]
+	},
+	{
+		name: 'Walmart',
+		color: '#0070CD',
+		logo: '/assets/img/logo_walmart.png',
+		slides: [
+			{
+				type: ProductSlideComponent,
+				accent: '#FFC31C',
+				logo: '/assets/img/logo_walmart.png',
+				title: 'Save money. Live better.',
+				desc: `
+						Walmart.com is a lot like your
+						neighborhood Walmart store. It
+						features a great selection of
+						high-quality merchandise, friendly
+						service and, of course, Every Day
+						Low Prices. There's also another goal:
+						to bring you the best shopping experience
+						on the Internet.
+				`,
+				product: '/assets/img/walmart/product-shot.png'
+			},
+			{
+				type: FactBottomSlideComponent,
+				img: '/assets/img/walmart/2-image.jpg',
+				fact: `
+					Save on millions of items in Baby, Pets, Food,
+					Household Essentials, Health, Clothing, Beauty and more.
+				`
+			},
+			{
+				type: FactTopSlideComponent,
+				img: '/assets/img/walmart/3-image.png',
+				fact: `
+					<p>
+						<span class="accent">Walmart.com started in late 1995 as a
+						simple homepage.</span> Customers could view
+						job openings, circulars and read about
+						the history of Walmart.
+					</p>
+				`
+			},
+			{
+				type: FactTopSlideComponent,
+				img: '/assets/img/walmart/4-image.png',
+				fact: `
+					<p>
+						The early staff of Walmart.com were employees
+						of a hardware/home DIY site that Walmart
+						acquired. <span class="accent">Its CMS for displaying product
+						items was called “the tool,”</span> morphing over
+						the years to suit the needs of Walmart.com
+					</p>
+				`
+			},
+			{
+				type: FactBottomSlideComponent,
+				img: '/assets/img/walmart/5-image.jpg',
+				fact: `
+					Walmart.com has always called Silicon
+					Valley home. Before moving to San Bruno,
+					California, from the neighboring city
+					of Brisbane, Walmart.com occupied a
+					building <span class="accent">affectionately
+					nicknamed the “Love Boat.”</span>
+				`
+			},
+			{
+				type: TextSlideComponent,
+				logo: '/assets/img/logo_walmart.png',
+				product: '/assets/img/walmart/text-product.png'
 			}
 		]
 	}

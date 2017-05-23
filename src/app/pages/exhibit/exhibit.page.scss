@@ -26,6 +26,43 @@ ko-exhibit {
 		}
 	}
 
+	ion-slides.HayNeedle {
+		.big {
+			font-size: 8vmax;
+		}
+		.accent {
+			color: #61EAF6;
+		}
+	}
+
+	ion-slides.Modcloth {
+		.accent {
+			color: #E0BF90;
+		}
+		.fact img.smaller {
+			width: 75%;
+			height: auto;
+		}
+	}
+
+	ion-slides.Moosejaw {
+		.accent {
+			color: #FFA900;
+		}
+	}
+
+	ion-slides.Shoes {
+		.accent {
+			color: #9BB7FF;
+		}
+	}
+
+	ion-slides.Walmart {
+		.accent {
+			color: #FFC31C;
+		}
+	}
+
 	.swiper-pagination-bullet {
 		width: 25px;
     	height: 25px;

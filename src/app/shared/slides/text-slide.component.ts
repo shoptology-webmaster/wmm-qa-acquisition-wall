@@ -10,7 +10,8 @@ import { Component } from '@angular/core';
 		<div *ngIf="isActive | async" class="container">
 			<img @top class="logo" [src]="data.logo">
 			<div @top class="desc">
-				<p>Explore some of our newest family members by texting <span class="bold">BRANDS</span> to <span class="bold">12343</span></p>
+				<p>Want to learn more about {{ data.name }}?</p>
+				<p>Text <span class="bold">WALMART {{ data.code }}</span> to <span class="bold">56512</span></p>
 			</div>
 			<img @bottom class="product" [src]="data.product">
 		</div>

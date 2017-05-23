@@ -37,11 +37,13 @@ export class ExhibitPage {
 		this.navService.options.showHome = true;
 		this.navService.options.showAccessibilityMode = false;
 
-		this.slidesService.setCurrentSlide(0);
-
 		if (this.navParams.get('exhibit')) {
 			this.exhibit = this.navParams.get('exhibit');
 		}
+	}
+
+	ionViewDidEnter() {
+		this.slidesService.setCurrentSlide(0);
 	}
 
 	nextSlide() {

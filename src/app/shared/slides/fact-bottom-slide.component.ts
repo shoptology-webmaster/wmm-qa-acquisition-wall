@@ -10,13 +10,13 @@ let animations = new Animations();
 	selector: 'fact-bottom-slide',
 	template: `
 		<div *ngIf="isActive | async" class="container">
-			<img @fadeInOut class="img" [src]="data.img">
-			<div @fadeInOut  class="fact" [innerHTML]="data.fact"></div>
+			<img @top class="img" [src]="data.img">
+			<div @bottom  class="fact" [innerHTML]="data.fact"></div>
 		</div>
-
 	`,
 	animations: [
-		animations.fadeInOut('fadeInOut')
+		animations.slideTopFade('top', '800ms cubic-bezier(0.19, 1, 0.22, 1)'),
+		animations.slideBottomFade('bottom', '800ms cubic-bezier(0.19, 1, 0.22, 1)')
 	]
 })
 export class FactBottomSlideComponent {
@@ -29,7 +29,6 @@ export class FactBottomSlideComponent {
 	) {
 		this.isActive = this.slidesService.select('currentSlide')
 			.map((currentSlide) => {
-				console.log(currentSlide, this.idx);
 				return currentSlide === this.idx;
 			});
 	}

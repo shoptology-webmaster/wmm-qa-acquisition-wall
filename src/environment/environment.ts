@@ -15,8 +15,8 @@ export const environment = {
 		title: '',
 		message: 'Are you still exploring?',
 		buttonText: 'Yes!',
-		delay: 120, // Time in seconds before we ask if the user is still there (Default: 120)
-		countdown: 15, // Time in seconds to countdown after the alert has popped up (Default: 15)
+		delay: 60, // Time in seconds before we ask if the user is still there (Default: 120)
+		countdown: 10, // Time in seconds to countdown after the alert has popped up (Default: 15)
 		excludedPages: ['PassivePage', 'SetupPage', 'LoadPage']
 	},
 	setupInputs: [

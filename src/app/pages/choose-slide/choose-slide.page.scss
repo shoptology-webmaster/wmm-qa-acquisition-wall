@@ -28,7 +28,7 @@ ko-choose-slide {
 		width: 22vmax;
 		height: 22vmax;
 		margin: 1vmax;
-		padding: 80px;
+		padding: 10px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -53,8 +53,8 @@ ko-choose-slide {
 	}
 
 	.circle {
-		width: 200px;
-		height: 195px;
+		width: 180px;
+		height: 180px;
 		border-radius: 50%;
 		background: #0070cd;
 		text-align: center;
@@ -67,7 +67,7 @@ ko-choose-slide {
 		}
 
 		img {
-			width: 38%;
+			width: 35%;
 		}
 	}
 

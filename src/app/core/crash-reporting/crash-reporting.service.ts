@@ -37,9 +37,10 @@ export class CrashReportingService {
 	constructor(
 		private deviceService: DeviceService
 	) {
-		Raven.setTransport( (options) => {
-			this.transportToRaven(options);
-		});
+		// Reenable if we need a proxy
+		// Raven.setTransport( (options) => {
+		// 	this.transportToRaven(options);
+		// });
 	}
 
 

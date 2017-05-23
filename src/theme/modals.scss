@@ -11,7 +11,9 @@
 	z-index: 999;
 
 	.modal-container {
-		width: 50vmin;
-		height: 50vmin;
+		min-width: 50vmin;
+		min-height: 50vmin;
+		max-width: 80vmin;
+		max-height: 80vmin;
 	}
 }

@@ -2,6 +2,7 @@ import { PassivePage } from './../../pages/passive/passive.page';
 import { environment } from './../../../environment/environment';
 import { Component, HostListener, Input } from '@angular/core';
 import { NavController, Alert, AlertController } from 'ionic-angular';
+import { fadeInOut } from '../animations';
 
 import { Observable, Subscription } from 'rxjs';
 
@@ -15,7 +16,10 @@ import { Observable, Subscription } from 'rxjs';
  */
 @Component({
 	selector: 'ko-timeout',
-	templateUrl: './timeout.component.html'
+	templateUrl: './timeout.component.html',
+	animations: [
+		fadeInOut('fadeInOut')
+	]
 })
 export class TimeoutComponent {
 	@Input() navCtrl: NavController;

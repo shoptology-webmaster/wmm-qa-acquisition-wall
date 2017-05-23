@@ -1,5 +1,12 @@
 ko-exhibit {
 
+	.modal-container {
+		width: 40vmin;
+    	height: 40vmin;
+		min-width: 40vmin;
+		min-height: 40vmin;
+	}
+
 	.swiper-slide {
 		color: white;
 		font-size: 3vmax;

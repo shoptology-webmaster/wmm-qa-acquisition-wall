@@ -4,7 +4,7 @@ export const environment = {
 	crashReporting: false,
 	production: false,
 	version: '0.0.1',
-	analytics: false,
+	analytics: true,
 	useProxy: false,
 	serviceWorkers: false,
 	pageViewReportBlacklist: [],

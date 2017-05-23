@@ -43,6 +43,8 @@ export class ExhibitPage {
 		if (this.navParams.get('exhibit')) {
 			this.exhibit = this.navParams.get('exhibit');
 		}
+
+		this.analyticsService.sendPageview('/exhibits/' + this.exhibit.name);
 	}
 
 	ionViewDidEnter() {
@@ -54,16 +56,20 @@ export class ExhibitPage {
 	}
 
 	nextSlide() {
+		this.analyticsService.sendEvent('nav', 'click', 'next');
 		this.slides.slideNext();
 	}
 
 	prevSlide() {
+		this.analyticsService.sendEvent('nav', 'click', 'prev');
 		this.slides.slidePrev();
 	}
 
 	slideChanged() {
 		this.currentIndex = this.slides.getActiveIndex();
 		this.slidesService.setCurrentSlide(this.currentIndex);
+
+		this.analyticsService.sendPageview('/exhibits/' + this.exhibit.name + '/' + this.currentIndex);
 
 		if (this.currentIndex >= this.slides.length() - 1) {
 			this.nextToMenu = true;
@@ -73,6 +79,7 @@ export class ExhibitPage {
 	}
 
 	goToMenu() {
+		this.analyticsService.sendEvent('nav', 'click', 'goToMenu');
 		this.navCtrl.push(ChooseSlidePage);
 	}
 

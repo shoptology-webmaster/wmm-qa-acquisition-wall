@@ -143,8 +143,8 @@ export const ExhibitsMock: Exhibit[] = [
 			},
 			{
 				type: TextSlideComponent,
-				logo: '/assets/img/logo_hayneedle.png',
-				product: '/assets/img/jet/text-product.png'
+				logo: '/assets/img/hayneedle/logo.png',
+				product: '/assets/img/hayneedle/text-product.png'
 			}
 		]
 	},

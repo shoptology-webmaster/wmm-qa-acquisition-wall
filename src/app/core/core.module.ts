@@ -8,10 +8,9 @@ import { SharedModule } from './../shared/shared.module';
 import { NavComponent } from './nav/nav.component';
 import { NavService } from './nav/nav.service';
 import { DeviceService } from './device/device.service';
-import { AnalyticsService, AnalyticsTimerService } from './analytics';
+import { AnalyticsService } from './analytics';
 import { CrashReportingService, CrashReportingErrorHandler } from './crash-reporting/crash-reporting.service';
 import { TimeoutComponent } from './timeout/timeout.component';
-import { APIService } from './api';
 import { ReloadService } from './reload/reload.service';
 
 @NgModule({
@@ -32,10 +31,8 @@ import { ReloadService } from './reload/reload.service';
 	providers: [
 		NavService,
 		DeviceService,
-		APIService,
 		ReloadService,
 		AnalyticsService,
-		AnalyticsTimerService,
 		CrashReportingService,
 		ExhibitService,
 		{ provide: ErrorHandler, useClass: CrashReportingErrorHandler }

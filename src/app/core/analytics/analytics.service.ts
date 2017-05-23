@@ -25,8 +25,6 @@ export class AnalyticsService {
 		this.deviceService.getKioskNumber()
 			.then((kioskNumber) => {
 				this.kioskNumber = kioskNumber;
-
-				ga('set', 'dimension1', this.kioskNumber);
 			});
 	}
 
@@ -41,6 +39,7 @@ export class AnalyticsService {
 		}
 		if (!this.sessionId) {
 			this.sessionId = Date.now().toString();
+			ga('set', 'dimension1', this.kioskNumber);
 			ga('send', 'pageview', {'sessionControl': 'start'});
 			ga('set', 'userId', this.sessionId);
 		} else if (forceNewSession) {

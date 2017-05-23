@@ -2,7 +2,6 @@ import { environment } from './../../../environment/environment';
 import { Injectable, ErrorHandler } from '@angular/core';
 import * as Raven from 'raven-js';
 
-import { APIService } from '../api/api.service';
 import { DeviceService } from '../device/device.service';
 
 // Configure and initialize Sentry / Raven outside of class in case of errors
@@ -36,7 +35,6 @@ Raven.setTagsContext({
 export class CrashReportingService {
 
 	constructor(
-		private apiService: APIService,
 		private deviceService: DeviceService
 	) {
 		Raven.setTransport( (options) => {
@@ -154,7 +152,7 @@ export class CrashReportingService {
 				});
 
 				if (environment.crashReporting) {
-					this.apiService.sendReport(params).subscribe();
+					//this.apiService.sendReport(params).subscribe();
 				}
 			})
 	}

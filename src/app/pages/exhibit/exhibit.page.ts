@@ -56,11 +56,12 @@ export class ExhibitPage {
 	}
 
 	nextSlide() {
-		this.analyticsService.sendEvent('exhibit-next', 'click');
+		this.analyticsService.sendEvent('nav', 'click', 'next');
 		this.slides.slideNext();
 	}
 
 	prevSlide() {
+		this.analyticsService.sendEvent('nav', 'click', 'prev');
 		this.slides.slidePrev();
 	}
 

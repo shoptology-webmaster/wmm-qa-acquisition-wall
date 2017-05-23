@@ -4,7 +4,6 @@ import { Component, Input } from '@angular/core';
 
 import { NavService } from './nav.service';
 import { NavController } from 'ionic-angular';
-import { AnalyticsService } from '../analytics';
 
 /**
  * Controls the top-level navigation interface for moving between pages
@@ -20,15 +19,14 @@ export class NavComponent {
 	@Input() navCtrl: NavController;
 
 	constructor(
-		private navService: NavService,
-		private analyticsService: AnalyticsService
+		private navService: NavService
 	) {}
 
 	ngAfterViewInit() {
 		// Watch for all view changes
 		this.navCtrl.viewDidEnter.subscribe((view) => {
 			if (environment.pageViewReportBlacklist && environment.pageViewReportBlacklist.indexOf(view.component.name) === -1) {
-				this.analyticsService.sendPageview(view.component.name);
+				//this.analyticsService.sendPageview(view.component.name);
 			}
 		});
 
@@ -69,7 +67,7 @@ export class NavComponent {
 		if (this.navService.isSearchModalOpen) {
 			this.navService.hideSearchModal();
 		}
-		this.analyticsService.sendEvent(view.component.name, 'tap', 'Back');
+		//this.analyticsService.sendEvent(view.component.name, 'tap', 'Back');
 	}
 
 	/**
@@ -98,7 +96,7 @@ export class NavComponent {
 		if (this.navService.isSearchModalOpen) {
 			this.navService.hideSearchModal();
 		}
-		this.analyticsService.sendEvent(view.component.name, 'tap', 'Home');
+		//this.analyticsService.sendEvent(view.component.name, 'tap', 'Home');
 	}
 
 	/**
@@ -113,10 +111,10 @@ export class NavComponent {
 
 		if (this.navService.isSearchModalOpen) {
 			this.navService.hideSearchModal();
-			this.analyticsService.sendEvent(view.component.name, 'tap', 'Search - Hide');
+			//this.analyticsService.sendEvent(view.component.name, 'tap', 'Search - Hide');
 		} else {
 			this.navService.showSearchModal();
-			this.analyticsService.sendEvent(view.component.name, 'tap', 'Search - Show');
+			//this.analyticsService.sendEvent(view.component.name, 'tap', 'Search - Show');
 		}
 	}
 

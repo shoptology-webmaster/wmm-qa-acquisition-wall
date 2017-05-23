@@ -5,6 +5,8 @@ import { NavController, Alert, AlertController } from 'ionic-angular';
 
 import { Observable, Subscription } from 'rxjs';
 
+import { AnalyticsService } from '../../core/analytics';
+
 /**
  * Controls the Timeout Modal
  * Modal should countdown the time between user interactions and pop up to ask if the user
@@ -40,7 +42,8 @@ export class TimeoutComponent {
 	}
 
 	constructor(
-		private alertCtrl: AlertController
+		private alertCtrl: AlertController,
+		private analyticsService: AnalyticsService
 	) {}
 
 	ngAfterViewInit() {

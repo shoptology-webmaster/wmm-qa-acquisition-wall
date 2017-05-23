@@ -3,8 +3,8 @@ import { Subscription } from 'rxjs';
 import { Injectable, Inject, forwardRef } from '@angular/core';
 
 import { DeviceService } from '../device/device.service';
-import { APIService } from '../api/api.service';
 
+declare var ga:Function;
 
 /**
  * Handles tracking and reporting of events, sessions, and pageviews
@@ -19,15 +19,14 @@ export class AnalyticsService {
 	public kioskNumber: number = 0;
 
 	constructor(
-		// Make sure to forward the reference of APIService in case it doesnt exist yet
-		@Inject(forwardRef(() => APIService))
-		private apiService: APIService,
 		@Inject(forwardRef(() => DeviceService))
 		private deviceService: DeviceService
 	) {
 		this.deviceService.getKioskNumber()
 			.then((kioskNumber) => {
 				this.kioskNumber = kioskNumber;
+
+				ga('set', 'dimension1', this.kioskNumber);
 			});
 	}
 
@@ -37,12 +36,13 @@ export class AnalyticsService {
 	 * @memberOf AnalyticsService
 	 */
 	startSession(forceNewSession?: boolean): void {
+		if (!environment.analytics) {
+			return;
+		}
 		if (!this.sessionId) {
 			this.sessionId = Date.now().toString();
-			this.sendEvent('session', 'start', undefined, undefined, {
-				sc: 'start',
-				cd1: this.kioskNumber
-			});
+			ga('send', 'pageview', {'sessionControl': 'start'});
+			ga('set', 'userId', this.sessionId);
 		} else if (forceNewSession) {
 			this.stopSession();
 			this.startSession();
@@ -64,7 +64,6 @@ export class AnalyticsService {
 	sendEvent(category: string, action: string, label?: string, val?: number, extra?: any): void {
 		this.startSession();
 		let obj: any = {
-			trackingId: environment.googleAnalyticsId,
 			eventCategory: category,
 			eventAction: action,
 			user: this.sessionId
@@ -83,7 +82,7 @@ export class AnalyticsService {
 		}
 
 		if (environment.analytics) {
-			this.apiService.sendEvent(obj).subscribe();
+			ga('send', 'event', obj);
 		}
 	}
 
@@ -98,18 +97,12 @@ export class AnalyticsService {
 	 */
 	sendPageview(pathname: string): void {
 		this.startSession();
-		let obj: any = {
-			trackingId: environment.googleAnalyticsId,
-			eventPath: pathname,
-			user: this.sessionId,
-			extra: {
-				cd1: this.kioskNumber
-			}
-		};
 
 		if (environment.analytics) {
-			this.subscription = this.apiService.sendPageview(obj).subscribe(() => {
-				this.subscription.unsubscribe();
+			ga('send', {
+				hitType: 'pageView',
+				page: pathname,
+				user: this.sessionId
 			});
 		}
 	}
@@ -122,11 +115,12 @@ export class AnalyticsService {
 	 * @memberOf AnalyticsService
 	 */
 	stopSession(): void {
+		if (!environment.analytics) {
+			return;
+		}
 		if (this.sessionId) {
-			this.sendEvent('session', 'end', undefined, undefined, {
-				sc: 'end',
-				cd1: this.kioskNumber
-			});
+			ga('send', 'pageview', {'sessionControl': 'end'});
+			ga('set', 'userId', '');
 			this.sessionId = undefined;
 		}
 	}

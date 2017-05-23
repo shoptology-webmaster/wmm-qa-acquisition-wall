@@ -27,7 +27,6 @@ export class ChooseSlidePage {
 		private navService: NavService,
 		private analyticsService: AnalyticsService,
 		private exhibitService: ExhibitService
-
 	) {}
 
 	ionViewWillEnter() {
@@ -37,9 +36,13 @@ export class ChooseSlidePage {
 		this.navService.setAccessibilityMode(true);
 
 		this.exhibits = this.exhibitService.select('exhibits');
+
+		this.analyticsService.sendPageview('/choose-slide');
 	}
 
 	goToExhibit(exhibit: Exhibit) {
+		this.analyticsService.sendEvent('nav', 'click', exhibit.name);
+
 		this.navCtrl.push(ExhibitPage, {
 			exhibit: exhibit
 		});

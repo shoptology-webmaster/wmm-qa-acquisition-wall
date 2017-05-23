@@ -100,7 +100,7 @@ export const ExhibitsMock: Exhibit[] = [
 			{
 				type: FactBottomSlideComponent,
 				img: '/assets/img/hayneedle/2-image.jpg',
-				fact: 'Furniture, décor, exclusive designs and more for every space, style and budget.'
+				fact: 'Furniture, décor, exclusive designs, and more for every space, style, and budget.'
 			},
 			{
 				type: FactTopSlideComponent,
@@ -111,7 +111,7 @@ export const ExhibitsMock: Exhibit[] = [
 						the purchase of a single online store,
 						Hammocks.com, from  a
 					</p>
-					<p class="big block accent">llama farmer</p>
+					<p class="big block accent">llama farmer.</p>
 				`
 			},
 			{
@@ -155,7 +155,7 @@ export const ExhibitsMock: Exhibit[] = [
 				type: ProductSlideComponent,
 				accent: '#E0BF90',
 				logo: '/assets/img/modcloth/logo.png',
-				title: 'Democratizing Fashion One Dress at a Time',
+				title: 'Democratizing fashion one dress at a time',
 				desc: `
 						ModCloth is the fun, friendly spot for
 						style and decor that’s as expressive
@@ -179,9 +179,9 @@ export const ExhibitsMock: Exhibit[] = [
 					<img src="/assets/img/modcloth/3-image-2.png" class="smaller">
 					<br>
 					<br>
-					ModCloth’s #1 internal search term, is “Cats" and they have
-					<span class="accent">over 100 cat-themed styles</span> on
-					their site.
+					ModCloth’s #1 internal search term is "cats." They have
+					<span class="accent">more than 100 cat-themed styles</span> on
+					the site.
 				`
 			},
 			{
@@ -189,9 +189,7 @@ export const ExhibitsMock: Exhibit[] = [
 				img: '/assets/img/modcloth/4-image.png',
 				fact: `
 					<p>
-						ModCloth created a company
-						holiday for <span class="accent">the founder’s
-						dog's birthday.</span>
+						At ModCloth, <span class="accent">the founder’s dog’s birthday</span> is a company holiday!
 					</p>
 				`
 			},
@@ -204,7 +202,7 @@ export const ExhibitsMock: Exhibit[] = [
 					sweethearts Susan Gregg Koger and Eric Koger in
 					2002, ModCloth has since grown to over 350
 					employees across offices in San Francisco,
-					Los Angeles and Pittsburgh.
+					Los Angeles, and Pittsburgh.
 				`
 			},
 			{
@@ -223,20 +221,20 @@ export const ExhibitsMock: Exhibit[] = [
 				type: ProductSlideComponent,
 				accent: '#FFA900',
 				logo: '/assets/img/logo_moosejaw.png',
-				title: 'Love the Madness',
+				title: 'Love the madness',
 				desc: `
 						Moosejaw is a leading online retailer
 						for active outdoor products with 10
 						physical stores. Moosejaw carries
 						more than 400 brands including Patagonia,
-						The North Face, Marmot, Arc’teryx and more.
+						The North Face, Marmot, Arc’teryx, and more.
 				`,
 				product: '/assets/img/moosejaw/product-shot.png'
 			},
 			{
 				type: FactBottomSlideComponent,
 				img: '/assets/img/moosejaw/2-image.jpg',
-				fact: 'Apparel and gear for climbing, hiking, camping, snow sports, yoga, swimming and biking.'
+				fact: 'Apparel and gear for climbing, hiking, camping, snow sports, yoga, swimming, and biking.'
 			},
 			{
 				type: FactTopSlideComponent,
@@ -257,7 +255,7 @@ export const ExhibitsMock: Exhibit[] = [
 						The brand's focus is having fun and being friends
 						with customers. <span class="accent">Random games of hide-and-seek
 						and touch football are known to happen</span> in
-						the middle of the store.
+						the middle of its stores.
 					</p>
 				`
 			},
@@ -293,18 +291,19 @@ export const ExhibitsMock: Exhibit[] = [
 				title: 'World\'s largest site for shoes',
 				desc: `
 						Shoes.com is the online shopping destination
-						for women, men and kids — making it easy,
-						fun and affordable to find the shoes you
-						love. Dedicated to each customer’s journey
-						with a great selection and curation, Shoes.com
-						works every day to provide a seamless shoe-shopping experience.
+						for women, men, and kids — making it easy,
+						fun, and affordable to find the shoes you
+						love. Dedicated to each customer’s journey,
+						Shoes.com works to provide a great
+						selection and seamless shoe-shopping
+						experience every day.
 				`,
 				product: '/assets/img/shoes/product-shot.png'
 			},
 			{
 				type: FactBottomSlideComponent,
 				img: '/assets/img/shoes/2-image.jpg',
-				fact: 'Shoes, shoes and more shoes for every occasion.'
+				fact: 'Shoes, shoes, and more shoes for every occasion.'
 			},
 			{
 				type: FactTopSlideComponent,
@@ -338,7 +337,7 @@ export const ExhibitsMock: Exhibit[] = [
 					Shoes.com carries
 					<span class="accent">more than 800 brands</span>
 					and over a million items including
-					footwear for women, men and kids,
+					footwear for women, men, and kids,
 					as well as clothing and accessories
 					such as outerwear and handbags.
 				`
@@ -377,7 +376,7 @@ export const ExhibitsMock: Exhibit[] = [
 				img: '/assets/img/walmart/2-image.jpg',
 				fact: `
 					Save on millions of items in Baby, Pets, Food,
-					Household Essentials, Health, Clothing, Beauty and more.
+					Household Essentials, Health, Clothing, Beauty, and more.
 				`
 			},
 			{
@@ -387,7 +386,7 @@ export const ExhibitsMock: Exhibit[] = [
 					<p>
 						<span class="accent">Walmart.com started in late 1995 as a
 						simple homepage.</span> Customers could view
-						job openings, circulars and read about
+						job openings, circulars, and read about
 						the history of Walmart.
 					</p>
 				`
@@ -401,7 +400,7 @@ export const ExhibitsMock: Exhibit[] = [
 						of a hardware/home DIY site that Walmart
 						acquired. <span class="accent">Its CMS for displaying product
 						items was called “the tool,”</span> morphing over
-						the years to suit the needs of Walmart.com
+						the years to suit the needs of Walmart.com.
 					</p>
 				`
 			},

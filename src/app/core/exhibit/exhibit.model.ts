@@ -181,7 +181,7 @@ export const ExhibitsMock: Exhibit[] = [
 					<br>
 					ModCloth’s #1 internal search term, is “Cats" and they have
 					<span class="accent">over 100 cat-themed styles</span> on
-					our site.
+					their site.
 				`
 			},
 			{
@@ -189,8 +189,9 @@ export const ExhibitsMock: Exhibit[] = [
 				img: '/assets/img/modcloth/4-image.png',
 				fact: `
 					<p>
-						Here at ModCloth, <span class="accent">our founder’s
-						dog's birthday</span> is a company holiday!
+						ModCloth created a company
+						holiday for <span class="accent">the founder’s
+						dog's birthday.</span>
 					</p>
 				`
 			},
@@ -266,7 +267,7 @@ export const ExhibitsMock: Exhibit[] = [
 				fact: `
 					<p>
 						 The company has developed a nontraditional marketing
-						 approach called <span class="accent">Moosejaw Madness."</span> The
+						 approach called <span class="accent">"Moosejaw Madness."</span> The
 						 company influences customer purchases
 						 and loyalty by <span class="accent">adding humor to all their
 						 communications.</span>

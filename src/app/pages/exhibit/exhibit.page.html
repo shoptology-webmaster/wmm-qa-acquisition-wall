@@ -5,9 +5,18 @@
 		</ion-slide>
 	</ion-slides>
 
-	<div class="nav">
-		<a (click)="nextSlide()" *ngIf="!nextToMenu"><span>Next</span></a>
-		<a (click)="goToMenu()" *ngIf="nextToMenu"><span>Menu</span></a>
+	<div class="nav" *ngIf="!nextToMenu">
+		<div class="circle">
+			<a (click)="nextSlide()" class="next" >
+				<img src="assets/img/icon_arrow-right.svg">
+				<span>Next</span>
+			</a>
+			<a (click)="prevSlide()" class="prev">
+				<span>Back</span>
+				<img src="assets/img/icon_arrow-left.svg">
+			</a>
+		</div>
+
 	</div>
 
 	<div @fadeInOut class="modal" *ngIf="showSwipeModal">

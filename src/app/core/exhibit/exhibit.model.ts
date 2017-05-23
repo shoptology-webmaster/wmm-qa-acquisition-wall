@@ -22,6 +22,7 @@ export interface Slide {
 	logo?: string;
 	title?: string;
 	desc?: string;
+	layout?: string;
 	product?: string;
 	fact?: string;
 }
@@ -56,6 +57,7 @@ export const ExhibitsMock: Exhibit[] = [
 			{
 				type: FactTopSlideComponent,
 				img: '/assets/img/jet/4-image.png',
+				layout: 'img-bottom',
 				fact: `
 					<p>Number of products available on Jet.com</p>
 					<p class="big block accent">12 million</p>

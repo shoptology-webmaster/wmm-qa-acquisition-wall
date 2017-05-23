@@ -50,11 +50,15 @@ export class ExhibitPage {
 
 		setTimeout(() => {
 			this.showSwipeModal = false;
-		}, 2000);
+		}, 1000);
 	}
 
 	nextSlide() {
 		this.slides.slideNext();
+	}
+
+	prevSlide() {
+		this.slides.slidePrev();
 	}
 
 	slideChanged() {

@@ -59,7 +59,7 @@ export const ExhibitsMock: Exhibit[] = [
 				img: '/assets/img/jet/4-image.png',
 				layout: 'img-bottom',
 				fact: `
-					<p>Number of products available on Jet.com</p>
+					<p>Number of products<br> available on Jet.com</p>
 					<p class="big block accent">12 million</p>
 				`
 			},
@@ -143,8 +143,8 @@ export const ExhibitsMock: Exhibit[] = [
 			},
 			{
 				type: TextSlideComponent,
-				logo: '/assets/img/logo_hayneedle.png',
-				product: '/assets/img/jet/text-product.png'
+				logo: '/assets/img/hayneedle/logo.png',
+				product: '/assets/img/hayneedle/text-product.png'
 			}
 		]
 	},

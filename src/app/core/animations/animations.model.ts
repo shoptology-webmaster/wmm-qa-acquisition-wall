@@ -27,13 +27,13 @@ export function slideTopFade(nameSpace: string, timing?: string) {
 	timing = timing || '1s 1s cubic-bezier(0.19, 1, 0.22, 1)';
 
 	return trigger(nameSpace, [
-		state('in', style({opacity: '0', transform: 'translateY(0)'})),
+		state('in', style({opacity: '0', transform: 'translate3d(0, 0, 0)'})),
 		transition('void => *', [
-			style({opacity: '0', transform: 'translateY(-50%)'}),
+			style({opacity: '0', transform: 'translate3d(0, -50%, 0)'}),
 			animate(timing)
 		]),
 		transition('* => void', [
-			animate(timing, style({opacity: '0', transform: 'translateY(0)'}))
+			animate(timing, style({opacity: '0', transform: 'translate3d(0, 0, 0)'}))
 		])
 	]);
 }
@@ -43,13 +43,13 @@ export function slideBottomFade(nameSpace: string, timing?: string) {
 	timing = timing || '1s 1s cubic-bezier(0.19, 1, 0.22, 1)';
 
 	return trigger(nameSpace, [
-		state('in', style({opacity: '0', transform: 'translateY(0)'})),
+		state('in', style({opacity: '0', transform: 'translate3d(0, 0, 0)'})),
 		transition('void => *', [
-			style({opacity: '0', transform: 'translateY(50%)'}),
+			style({opacity: '0', transform: 'translate3d(0, 50%, 0)'}),
 			animate(timing)
 		]),
 		transition('* => void', [
-			animate(timing, style({opacity: '0', transform: 'translateY(0)'}))
+			animate(timing, style({opacity: '0', transform: 'translate3d(0, 0, 0)'}))
 		])
 	]);
 }
@@ -59,13 +59,13 @@ export function slideRightFade(nameSpace: string, timing?: string) {
 	timing = timing || '1s 1s cubic-bezier(0.19, 1, 0.22, 1)';
 
 	return trigger(nameSpace, [
-		state('in', style({opacity: '0', transform: 'translateX(0)'})),
+		state('in', style({opacity: '0', transform: 'translate3d(0, 0, 0)'})),
 		transition('void => *', [
-			style({opacity: '0', transform: 'translateX(100%)'}),
+			style({opacity: '0', transform: 'translate3d(100%, 0, 0)'}),
 			animate(timing)
 		]),
 		transition('* => void', [
-			animate(timing, style({opacity: '0', transform: 'translateX(0)'}))
+			animate(timing, style({opacity: '0', transform: 'translate3d(0, 0, 0)'}))
 		])
 	]);
 }
@@ -75,13 +75,13 @@ export function slideUpFade(nameSpace: string, timing?: string) {
 	timing = timing || '1s 1s cubic-bezier(0.19, 1, 0.22, 1)';
 
 	return trigger(nameSpace, [
-		state('in', style({opacity: '0', transform: 'translateY(0)'})),
+		state('in', style({opacity: '0', transform: 'translate3d(0, 0, 0)'})),
 		transition('void => *', [
-			style({opacity: '0', transform: 'translateY(100%)'}),
+			style({opacity: '0', transform: 'translate3d(0, 100%, 0)'}),
 			animate(timing)
 		]),
 		transition('* => void', [
-			animate(timing, style({opacity: '0', transform: 'translateY(0)'}))
+			animate(timing, style({opacity: '0', transform: 'translate3d(0, 0, 0)'}))
 		])
 	]);
 }

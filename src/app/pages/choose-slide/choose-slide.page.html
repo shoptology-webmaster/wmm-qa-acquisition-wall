@@ -1,9 +1,19 @@
-<ion-content>
-	<h1>Choose a company</h1>
+<ion-content [class.accessibility]="accessibilityMode">
 
-	<div class="containers">
-		<div class="container" [style.background-color]="exhibit.color" *ngFor="let exhibit of exhibits | async" (click)="goToExhibit(exhibit)">
-			<img [src]="exhibit.logo">
+	<div class="companies">
+		<h1>Choose a company</h1>
+
+		<div class="containers">
+			<div class="container" [style.background-color]="exhibit.color" *ngFor="let exhibit of exhibits | async" (click)="goToExhibit(exhibit)">
+				<img [src]="exhibit.logo">
+			</div>
+		</div>
+	</div>
+
+
+	<div class="accessibility" (click)="toggleAccessibility()">
+		<div class="circle">
+			<img src="assets/img/icon_accessibility.svg">
 		</div>
 	</div>
 

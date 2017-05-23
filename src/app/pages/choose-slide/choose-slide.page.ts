@@ -21,6 +21,7 @@ import { ExhibitPage } from './../exhibit/exhibit.page';
 export class ChooseSlidePage {
 
 	public exhibits: Observable<Exhibit[]>;
+	public accessibilityMode: boolean = false;
 
 	constructor(
 		private navCtrl: NavController,
@@ -37,6 +38,10 @@ export class ChooseSlidePage {
 		this.navService.setAccessibilityMode(true);
 
 		this.exhibits = this.exhibitService.select('exhibits');
+	}
+
+	toggleAccessibility() {
+		this.accessibilityMode = !this.accessibilityMode;
 	}
 
 	goToExhibit(exhibit: Exhibit) {

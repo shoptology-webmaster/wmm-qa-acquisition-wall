@@ -83,4 +83,13 @@ ko-choose-slide {
 		}
 	}
 
+	.setup {
+		width: 5vw;
+		height: 5vw;
+		position: fixed;
+		right:0;
+		top:0;
+		z-index: 9999;
+	}
+
 }

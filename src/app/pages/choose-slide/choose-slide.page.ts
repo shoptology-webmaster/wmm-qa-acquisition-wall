@@ -1,3 +1,4 @@
+import { SetupPage } from './../setup/setup.page';
 import { ExhibitService } from './../../core/exhibit/exhibit.service';
 import { Observable } from 'rxjs';
 import { Exhibit } from './../../core/exhibit/exhibit.model';
@@ -51,6 +52,10 @@ export class ChooseSlidePage {
 		this.navCtrl.push(ExhibitPage, {
 			exhibit: exhibit
 		});
+	}
+
+	goToSetup() {
+		this.navCtrl.push(SetupPage);
 	}
 
 }

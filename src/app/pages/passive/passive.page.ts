@@ -24,9 +24,9 @@ export class PassivePage {
 	@ViewChild('loopVideo') loopVideo: ElementRef;
 	public videoUrl: string = '';
 	public videoUrls: string[] = [
-		'/assets/videos/wm-moosejaw.mp4',
-		'/assets/videos/shoes-haystack.mp4',
-		'/assets/videos/jet-modcloth.mp4',
+		'assets/videos/wm-moosejaw.mp4',
+		'assets/videos/shoes-haystack.mp4',
+		'assets/videos/jet-modcloth.mp4',
 	];
 
 	constructor(

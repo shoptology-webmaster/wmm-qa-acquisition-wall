@@ -128,7 +128,7 @@ export const ExhibitsMock: Exhibit[] = [
 						<span class="accent">
 							Hayneedle has its own photography studio
 						</span> and customer care
-						center in Omaha, Nebraska as well
+						center in Omaha, Nebraska, as well
 						as state-of-the-art fulfillment
 						centers in California and Ohio.
 					</p>
@@ -253,7 +253,7 @@ export const ExhibitsMock: Exhibit[] = [
 					<p>
 						The name of the company was developed by <span class="accent">throwing a
 						dart at a map</span> and using the name of the city it
-						landed on. Shout out to <span class="accent">Moose Jaw, Canada.</span>
+						landed on. Shout-out to <span class="accent">Moose Jaw, Canada.</span>
 					</p>
 				`
 			},
@@ -378,7 +378,7 @@ export const ExhibitsMock: Exhibit[] = [
 						neighborhood Walmart store. It
 						features a great selection of
 						high-quality merchandise, friendly
-						service and, of course, Every Day
+						service, and of course, Every Day
 						Low Prices. There's also another goal:
 						to bring you the best shopping experience
 						on the Internet.
@@ -399,9 +399,8 @@ export const ExhibitsMock: Exhibit[] = [
 				fact: `
 					<p>
 						<span class="accent">Walmart.com started in late 1995 as a
-						simple homepage.</span> Customers could view
-						job openings, circulars, and read about
-						the history of Walmart.
+						simple home page.</span> Customers could view job
+						openings and circulars and also read about the history of Walmart.
 					</p>
 				`
 			},
@@ -427,7 +426,7 @@ export const ExhibitsMock: Exhibit[] = [
 					California, from the neighboring city
 					of Brisbane, Walmart.com occupied a
 					building <span class="accent">affectionately
-					nicknamed the “Love Boat.”</span>
+					nicknamed the Love Boat.</span>
 				`
 			},
 			{

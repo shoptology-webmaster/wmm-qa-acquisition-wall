@@ -12,6 +12,7 @@ import { Component } from '@angular/core';
 			<div @top class="desc">
 				<p>Want to learn more about {{ data.name }}?</p>
 				<p>Text <span class="bold">WALMART {{ data.code }}</span> to <span class="bold">56512</span></p>
+				<p class="legal">(Message and data rates may apply.  Text STOP to unsubscribe.)</p>
 			</div>
 			<img @bottom class="product" [src]="data.product">
 		</div>

@@ -1,7 +1,7 @@
 export const environment = {
 	apiUrl: '',
 	googleAnalyticsId: '',
-	crashReporting: false,
+	crashReporting: true,
 	production: false,
 	version: '0.0.1',
 	analytics: true,

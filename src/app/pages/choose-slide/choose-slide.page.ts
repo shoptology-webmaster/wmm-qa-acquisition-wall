@@ -23,6 +23,10 @@ export class ChooseSlidePage {
 
 	public exhibits: Observable<Exhibit[]>;
 	public accessibilityMode: boolean = false;
+	public setup: {one: boolean, two: boolean} = {
+		one: false,
+		two: false
+	}
 
 	constructor(
 		private navCtrl: NavController,

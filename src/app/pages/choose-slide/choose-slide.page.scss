@@ -5,6 +5,7 @@ ko-choose-slide {
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
+		overflow: hidden;
 
 		background: #212121;
 		color: white;
@@ -89,9 +90,22 @@ ko-choose-slide {
 		width: 5vw;
 		height: 5vw;
 		position: fixed;
-		right:0;
 		top:0;
 		z-index: 9999;
+
+		&.one {
+			right:0;
+		}
+
+		&.two {
+			left: 0;
+		}
+
+		&.three {
+			top: auto;
+			bottom: 0;
+			left: 0;
+		}
 	}
 
 }

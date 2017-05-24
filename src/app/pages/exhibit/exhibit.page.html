@@ -5,7 +5,7 @@
 		</ion-slide>
 	</ion-slides>
 
-	<div class="nav" *ngIf="!nextToMenu">
+	<div @fadeInOut class="nav" *ngIf="!nextToMenu">
 		<div class="circle">
 			<a (click)="nextSlide()" class="next" >
 				<img src="assets/img/icon_arrow-right.svg">
@@ -16,7 +16,6 @@
 				<img src="assets/img/icon_arrow-left.svg">
 			</a>
 		</div>
-
 	</div>
 
 	<div @fadeInOut class="modal" *ngIf="showSwipeModal">

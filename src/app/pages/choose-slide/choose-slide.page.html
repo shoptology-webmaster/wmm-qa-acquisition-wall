@@ -17,7 +17,8 @@
 		</div>
 	</div>
 
-	<div class="setup" (click)="goToSetup()"></div>
-
+	<div class="setup one" (click)="setup.one = true"></div>
+	<div *ngIf="setup.one" class="setup two" (click)="setup.two = true"></div>
+	<div *ngIf="setup.two" class="setup three" (click)="goToSetup()"></div>
 
 </ion-content>

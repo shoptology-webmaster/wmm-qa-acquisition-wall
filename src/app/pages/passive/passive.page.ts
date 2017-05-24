@@ -67,7 +67,11 @@ export class PassivePage {
 		// Find the right video to play
 		this.storage.get('kioskNumber')
 			.then((kioskNumber) => {
-				if (kioskNumber) {
+				if (
+					kioskNumber
+					&& kioskNumber < 4
+					&& kioskNumber > 0)
+				{
 					kioskNumber--;
 				} else {
 					kioskNumber = 0;

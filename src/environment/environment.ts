@@ -3,7 +3,7 @@ export const environment = {
 	googleAnalyticsId: '',
 	crashReporting: true,
 	production: false,
-	version: '0.0.1',
+	version: '0.0.2',
 	analytics: true,
 	useProxy: false,
 	serviceWorkers: false,
@@ -15,7 +15,7 @@ export const environment = {
 		title: '',
 		message: 'Are you still exploring?',
 		buttonText: 'Yes!',
-		delay: 60, // Time in seconds before we ask if the user is still there (Default: 120)
+		delay: 120, // Time in seconds before we ask if the user is still there (Default: 120)
 		countdown: 10, // Time in seconds to countdown after the alert has popped up (Default: 15)
 		excludedPages: ['PassivePage', 'SetupPage', 'LoadPage']
 	},

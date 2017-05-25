@@ -79,7 +79,7 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/Jet.png',
 				product: 'assets/img/jet/text-product.png',
 				name: 'Jet',
-				code: 'JET'
+				code: 'FAMILY'
 			}
 		]
 	},
@@ -150,7 +150,7 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/Hayneedle.png',
 				product: 'assets/img/hayneedle/text-product.png',
 				name: 'Hayneedle',
-				code: 'HAYNEEDLE'
+				code: 'FAMILY'
 			}
 		]
 	},
@@ -218,7 +218,7 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/ModCloth.png',
 				product: 'assets/img/modcloth/text-product.png',
 				name: 'ModCloth',
-				code: 'MODCLOTH'
+				code: 'FAMILY'
 			}
 		]
 	},
@@ -273,7 +273,7 @@ export const ExhibitsMock: Exhibit[] = [
 				type: FactBottomSlideComponent,
 				img: 'assets/img/moosejaw/5-image.jpg',
 				fact: `
-					<p>
+					<p class="wide">
 						 The company has developed a nontraditional marketing
 						 approach called <span class="accent">"Moosejaw Madness."</span> The
 						 company influences customer purchases
@@ -287,7 +287,7 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/Moosejaw.png',
 				product: 'assets/img/moosejaw/text-product.png',
 				name: 'Moosejaw',
-				code: 'MOOSEJAW'
+				code: 'FAMILY'
 			}
 		]
 	},
@@ -359,7 +359,7 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/Shoes.png',
 				product: 'assets/img/shoes/text-product.png',
 				name: 'Shoes',
-				code: 'SHOES'
+				code: 'FAMILY'
 			}
 		]
 	},
@@ -434,7 +434,7 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/Walmart.png',
 				product: 'assets/img/walmart/text-product.png',
 				name: 'Walmart',
-				code: 'DOTCOM'
+				code: 'FAMILY'
 			}
 		]
 	}

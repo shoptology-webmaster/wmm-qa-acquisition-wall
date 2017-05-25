@@ -270,8 +270,8 @@ export const ExhibitsMock: Exhibit[] = [
 				`
 			},
 			{
-				type: FactTopSlideComponent,
-				img: 'assets/img/moosejaw/5-image.png',
+				type: FactBottomSlideComponent,
+				img: 'assets/img/moosejaw/5-image.jpg',
 				fact: `
 					<p>
 						 The company has developed a nontraditional marketing

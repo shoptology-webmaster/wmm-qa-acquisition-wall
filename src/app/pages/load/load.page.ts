@@ -1,7 +1,8 @@
 import { environment } from './../../../environment/environment';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+
 
 // import { APIService } from '../../core/api/api.service';
 import { PassivePage } from '../passive/passive.page';
@@ -24,6 +25,7 @@ export class LoadPage {
 
 	constructor(
 		// public apiService: APIService,
+		public platform: Platform,
 		public navCtrl: NavController,
 		public navService: NavService,
 		public reloadService: ReloadService,
@@ -34,16 +36,39 @@ export class LoadPage {
 		this.navService.options.visible = false;
 		this.navService.options.showLogo = false;
 
-		this.checkForUndefinedInputs(environment.setupInputs)
-			.then((undefinedInputs) => {
-				console.log(undefinedInputs);
 
-				if (undefinedInputs > 0) {
-					this.goToSetup();
-				} else {
-					this.goToPassive();
-				}
-			});
+		// this.checkForUndefinedInputs(environment.setupInputs)
+		// 	.then((undefinedInputs) => {
+		// 		console.log(undefinedInputs);
+
+		// 		if (undefinedInputs > 0) {
+		// 			this.goToSetup();
+		// 		} else {
+		// 			this.goToPassive();
+		// 		}
+		// 	});
+
+
+		this.platform.ready().then(() => {
+			this.loadTags()
+				.then((tags) => {
+					return this.insertTags(tags);
+				})
+				.then(() => {
+					return this.checkForUndefinedInputs(environment.setupInputs);
+				})
+				.then((undefinedInputs) => {
+					console.log(undefinedInputs);
+
+					if (undefinedInputs > 0) {
+						this.goToSetup();
+					} else {
+						this.goToPassive();
+					}
+				});
+		});
+
+
 
 
 		// if (environment.serviceWorkers) {
@@ -87,6 +112,105 @@ export class LoadPage {
 	 */
 	goToPassive(): void {
 		this.navCtrl.push(PassivePage);
+	}
+
+	/**
+	 * Adds tags from the device to storage
+	 *
+	 * @param tags
+	 */
+	insertTags(tags) {
+		return new Promise((resolve, reject) => {
+			// TODO: If we need to load multiple tags,
+			// add a loop here
+
+
+			if(tags.customfield) {
+				if(tags.customfield.KIOSK_NUMBER) {
+					this.storage.set('kioskNumber', tags.customfield.KIOSK_NUMBER)
+						.then(() => {
+							resolve();
+						});
+				} else {
+					resolve();
+				}
+			} else {
+				resolve();
+			}
+		});
+
+	}
+
+	/**
+	 * Loads tags from the device's storage.
+	 *
+	 * @returns {Promise<any>}
+	 * @memberof LoadPage
+	 */
+	loadTags(): Promise<any> {
+		return new Promise((resolve, reject) => {
+			if(window['cordova']) {
+				window['resolveLocalFileSystemURL'](window['cordova'].file.externalRootDirectory + 'agent/', (dir) => {
+					dir.getFile('tags', {
+						create: false
+					}, (fileEntry) => {
+						fileEntry.file(function(file) {
+							var reader = new FileReader();
+
+							reader.onloadend = function() {
+								// Parse all lince into keys in an array
+								var settingsArr = this.result.match(/[^\r\n]+/g),
+									settings = {};
+
+								// Run through each array item and parse as needed
+								settingsArr.forEach(function(v, k) {
+									var d = v.split('=');
+
+									// If the key has a period, parse it into a valid object
+									if (d[0].indexOf('.') !== -1) {
+										var innerKey1 = d[0].split('.')[0],
+											innerKey2;
+
+										if (typeof settings[innerKey1] === 'undefined') {
+											settings[innerKey1] = {};
+										}
+
+										if (typeof d[0].split('.')[1] !== 'undefined') {
+											innerKey2 = d[0].split('.')[1];
+
+											if (typeof settings[innerKey1][innerKey2] === 'undefined') {
+												settings[innerKey1][innerKey2] = {};
+											}
+
+											settings[innerKey1][innerKey2] = decodeURIComponent(d[1]);
+										} else {
+											settings[innerKey1] = decodeURIComponent(d[1]);
+										}
+									} else {
+										settings[d[0]] = decodeURIComponent(d[1]);
+									}
+
+									resolve(settings);
+								});
+
+								console.log('------------------');
+								console.log('GOT CONFIG');
+								console.log(settings);
+								console.log('------------------');
+							};
+
+							reader.readAsText(file);
+						});
+					}, (err) => {
+						resolve({});
+					});
+				}, (err) => {
+					resolve({});
+				});
+			} else {
+				resolve({});
+			}
+		});
 	}
 
 	/**

@@ -364,7 +364,7 @@ export const ExhibitsMock: Exhibit[] = [
 		]
 	},
 	{
-		name: 'Walmart',
+		name: 'Bonobos',
 		color: '#0284C5',
 		logo: 'assets/img/Walmart.png',
 		slides: [
@@ -434,6 +434,78 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/Walmart.png',
 				product: 'assets/img/walmart/text-product.png',
 				name: 'Walmart',
+				code: 'FAMILY'
+			}
+		]
+	},
+	{
+		name: 'Bonobos',
+		color: '#404040',
+		logo: 'assets/img/Bonobos.png',
+		slides: [
+			{
+				type: ProductSlideComponent,
+				accent: '#ffffff',
+				logo: 'assets/img/Bonobos.png',
+				title: 'Better-fitting men\'s clothes',
+				desc: `
+						Bonobos is an e-commerce-driven apparel
+						company headquartered in New York City
+						that designs and sells men's apparel
+						for casual, business and formal wear occasions.
+				`,
+				product: 'assets/img/bonobos/product-shot.png'
+			},
+			{
+				type: FactBottomSlideComponent,
+				img: 'assets/img/bonobos/2-image.jpg',
+				fact: `
+					Bonobos strives to make great men's suits,
+					trousers, denim, shirts, shorts, swimwear,
+					outerwear and accessories.
+				`
+			},
+			{
+				type: FactTopSlideComponent,
+				img: 'assets/img/bonobos/3-image.png',
+				fact: `
+					<p>
+						Bonobos refers to their <br>
+						customer service providers as <br>
+						ninjas. When starting out as a <br>
+						new rep, the employee is referred <br>
+						to as a white-belt<br>
+						<span class="big block accent">ninja.</span>
+					</p>
+				`
+			},
+			{
+				type: FactTopSlideComponent,
+				img: 'assets/img/bonobos/4-image.png',
+				fact: `
+					<p>
+						Andy Dunn and Brian Spaly began
+						Bonobos as an independent study
+						project at Stanford Graduate School
+						of Business in 2006.
+					</p>
+				`
+			},
+			{
+				type: FactBottomSlideComponent,
+				img: 'assets/img/bonobos/5-image.jpg',
+				fact: `
+					At Bonobos' Guideshop locations,
+					you can schedule an appointment
+					with a stylist. The kicker? No inventory.
+					The clothes are sent straight to the buyer's home.
+				`
+			},
+			{
+				type: TextSlideComponent,
+				logo: 'assets/img/Bonobos.png',
+				product: 'assets/img/bonobos/text-product.png',
+				name: 'Bonobos',
 				code: 'FAMILY'
 			}
 		]

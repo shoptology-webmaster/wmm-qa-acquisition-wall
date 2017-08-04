@@ -26,7 +26,10 @@ export class AnalyticsService {
 				this.kioskNumber = kioskNumber;
 			});
 
-		this.ga.startTrackerWithId(environment.googleAnalyticsId);
+		if (environment.analytics) {
+			this.ga.startTrackerWithId(environment.googleAnalyticsId);
+		}
+
 	}
 
 	/**

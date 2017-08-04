@@ -10,7 +10,7 @@ import { ReloadService } from './../../core/reload/reload.service';
 import { DeviceService } from './../../core/device/device.service';
 
 /**
- * Handles session start/stop and path selection.
+ * Plays Video loop
  *
  * @export
  * @class PassiveComponent

@@ -4,7 +4,7 @@ export const environment = {
 	crashReporting: true,
 	production: false,
 	version: '0.0.2',
-	analytics: true,
+	analytics: false,
 	useProxy: false,
 	serviceWorkers: false,
 	pageViewReportBlacklist: [],
@@ -15,7 +15,7 @@ export const environment = {
 		title: '',
 		message: 'Are you still exploring?',
 		buttonText: 'Yes!',
-		delay: 120, // Time in seconds before we ask if the user is still there (Default: 120)
+		delay: 30, // Time in seconds before we ask if the user is still there (Default: 120)
 		countdown: 10, // Time in seconds to countdown after the alert has popped up (Default: 15)
 		excludedPages: ['PassivePage', 'SetupPage', 'LoadPage']
 	},

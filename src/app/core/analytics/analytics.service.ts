@@ -4,8 +4,6 @@ import { Injectable, Inject, forwardRef } from '@angular/core';
 
 import { DeviceService } from '../device/device.service';
 
-declare var ga:Function;
-
 /**
  * Handles tracking and reporting of events, sessions, and pageviews
  *
@@ -17,6 +15,7 @@ export class AnalyticsService {
 	public sessionId: string;
 	public subscription: Subscription;
 	public kioskNumber: number = 0;
+	public ga: any = window['ga'];
 
 	constructor(
 		@Inject(forwardRef(() => DeviceService))
@@ -26,6 +25,8 @@ export class AnalyticsService {
 			.then((kioskNumber) => {
 				this.kioskNumber = kioskNumber;
 			});
+
+		this.ga.startTrackerWithId(environment.googleAnalyticsId);
 	}
 
 	/**
@@ -35,14 +36,19 @@ export class AnalyticsService {
 	 */
 	startSession(forceNewSession?: boolean): void {
 		if (!environment.analytics) {
+			console.log('analytics disabled');
 			return;
 		}
 		if (!this.sessionId) {
+			console.log('starting new session');
 			this.sessionId = Date.now().toString();
-			ga('set', 'dimension1', this.kioskNumber);
-			ga('send', 'pageview', {'sessionControl': 'start'});
-			ga('set', 'userId', this.sessionId);
+			//this.ga('set', 'dimension1', this.kioskNumber);
+			//this.ga('send', 'pageview', {'sessionControl': 'start'});
+			this.ga.setUserId(this.sessionId, 1);
+			this.ga.setVar('sc', 'start');
+			this.ga.addCustomDimension(1, this.kioskNumber.toString());
 		} else if (forceNewSession) {
+			console.log('forcing new session');
 			this.stopSession();
 			this.startSession();
 		}
@@ -81,7 +87,9 @@ export class AnalyticsService {
 		}
 
 		if (environment.analytics) {
-			ga('send', 'event', obj);
+			console.log('sending event');
+			//this.ga('send', 'event', obj);
+			this.ga.trackEvent(category, action, label, val);
 		}
 	}
 
@@ -98,11 +106,15 @@ export class AnalyticsService {
 		this.startSession();
 
 		if (environment.analytics) {
-			ga('send', {
-				hitType: 'pageView',
-				page: pathname,
-				user: this.sessionId
-			});
+			console.log('sending pageview');
+			// this.ga('send', {
+			// 	hitType: 'pageView',
+			// 	page: pathname,
+			// 	user: this.sessionId
+			// });
+			this.ga.trackView(pathname);
+			//this.ga.setVar('dp', pathname);
+			//this.ga.trackEvent('page', 'view', pathname);
 		}
 	}
 
@@ -115,12 +127,16 @@ export class AnalyticsService {
 	 */
 	stopSession(): void {
 		if (!environment.analytics) {
+			console.log('analytics disabled');
 			return;
 		}
 		if (this.sessionId) {
-			ga('send', 'pageview', {'sessionControl': 'end'});
-			ga('set', 'userId', '');
+			console.log('stopping session');
+			//this.ga('send', 'pageview', {'sessionControl': 'end'});
+			//this.ga('set', 'userId', '');
 			this.sessionId = undefined;
+			this.ga.setVar('sc', 'end');
+			this.ga.setUserId(this.sessionId);
 		}
 	}
 

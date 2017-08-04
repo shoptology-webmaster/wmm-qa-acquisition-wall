@@ -79,7 +79,7 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/Jet.png',
 				product: 'assets/img/jet/text-product.png',
 				name: 'Jet',
-				code: 'JET'
+				code: 'FAMILY'
 			}
 		]
 	},
@@ -128,7 +128,7 @@ export const ExhibitsMock: Exhibit[] = [
 						<span class="accent">
 							Hayneedle has its own photography studio
 						</span> and customer care
-						center in Omaha, Nebraska as well
+						center in Omaha, Nebraska, as well
 						as state-of-the-art fulfillment
 						centers in California and Ohio.
 					</p>
@@ -150,7 +150,7 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/Hayneedle.png',
 				product: 'assets/img/hayneedle/text-product.png',
 				name: 'Hayneedle',
-				code: 'HAYNEEDLE'
+				code: 'FAMILY'
 			}
 		]
 	},
@@ -218,7 +218,7 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/ModCloth.png',
 				product: 'assets/img/modcloth/text-product.png',
 				name: 'ModCloth',
-				code: 'MODCLOTH'
+				code: 'FAMILY'
 			}
 		]
 	},
@@ -253,7 +253,7 @@ export const ExhibitsMock: Exhibit[] = [
 					<p>
 						The name of the company was developed by <span class="accent">throwing a
 						dart at a map</span> and using the name of the city it
-						landed on. Shout out to <span class="accent">Moose Jaw, Canada.</span>
+						landed on. Shout-out to <span class="accent">Moose Jaw, Canada.</span>
 					</p>
 				`
 			},
@@ -270,10 +270,10 @@ export const ExhibitsMock: Exhibit[] = [
 				`
 			},
 			{
-				type: FactTopSlideComponent,
-				img: 'assets/img/moosejaw/5-image.png',
+				type: FactBottomSlideComponent,
+				img: 'assets/img/moosejaw/5-image.jpg',
 				fact: `
-					<p>
+					<p class="wide">
 						 The company has developed a nontraditional marketing
 						 approach called <span class="accent">"Moosejaw Madness."</span> The
 						 company influences customer purchases
@@ -287,7 +287,7 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/Moosejaw.png',
 				product: 'assets/img/moosejaw/text-product.png',
 				name: 'Moosejaw',
-				code: 'MOOSEJAW'
+				code: 'FAMILY'
 			}
 		]
 	},
@@ -359,12 +359,12 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/Shoes.png',
 				product: 'assets/img/shoes/text-product.png',
 				name: 'Shoes',
-				code: 'SHOES'
+				code: 'FAMILY'
 			}
 		]
 	},
 	{
-		name: 'Walmart',
+		name: 'Bonobos',
 		color: '#0284C5',
 		logo: 'assets/img/Walmart.png',
 		slides: [
@@ -378,7 +378,7 @@ export const ExhibitsMock: Exhibit[] = [
 						neighborhood Walmart store. It
 						features a great selection of
 						high-quality merchandise, friendly
-						service and, of course, Every Day
+						service, and of course, Every Day
 						Low Prices. There's also another goal:
 						to bring you the best shopping experience
 						on the Internet.
@@ -399,9 +399,8 @@ export const ExhibitsMock: Exhibit[] = [
 				fact: `
 					<p>
 						<span class="accent">Walmart.com started in late 1995 as a
-						simple homepage.</span> Customers could view
-						job openings, circulars, and read about
-						the history of Walmart.
+						simple home page.</span> Customers could view job
+						openings and circulars and also read about the history of Walmart.
 					</p>
 				`
 			},
@@ -427,7 +426,7 @@ export const ExhibitsMock: Exhibit[] = [
 					California, from the neighboring city
 					of Brisbane, Walmart.com occupied a
 					building <span class="accent">affectionately
-					nicknamed the “Love Boat.”</span>
+					nicknamed the Love Boat.</span>
 				`
 			},
 			{
@@ -435,7 +434,79 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/Walmart.png',
 				product: 'assets/img/walmart/text-product.png',
 				name: 'Walmart',
-				code: 'DOTCOM'
+				code: 'FAMILY'
+			}
+		]
+	},
+	{
+		name: 'Bonobos',
+		color: '#404040',
+		logo: 'assets/img/Bonobos.png',
+		slides: [
+			{
+				type: ProductSlideComponent,
+				accent: '#ffffff',
+				logo: 'assets/img/Bonobos.png',
+				title: 'Better-fitting men\'s clothes',
+				desc: `
+						Bonobos is an e-commerce-driven apparel
+						company headquartered in New York City
+						that designs and sells men's apparel
+						for casual, business and formal wear occasions.
+				`,
+				product: 'assets/img/bonobos/product-shot.png'
+			},
+			{
+				type: FactBottomSlideComponent,
+				img: 'assets/img/bonobos/2-image.jpg',
+				fact: `
+					Bonobos strives to make great men's suits,
+					trousers, denim, shirts, shorts, swimwear,
+					outerwear and accessories.
+				`
+			},
+			{
+				type: FactTopSlideComponent,
+				img: 'assets/img/bonobos/3-image.png',
+				fact: `
+					<p>
+						Bonobos refers to their <br>
+						customer service providers as <br>
+						ninjas. When starting out as a <br>
+						new rep, the employee is referred <br>
+						to as a white-belt<br>
+						<span class="big block accent">ninja.</span>
+					</p>
+				`
+			},
+			{
+				type: FactTopSlideComponent,
+				img: 'assets/img/bonobos/4-image.png',
+				fact: `
+					<p>
+						Andy Dunn and Brian Spaly began
+						Bonobos as an independent study
+						project at Stanford Graduate School
+						of Business in 2006.
+					</p>
+				`
+			},
+			{
+				type: FactBottomSlideComponent,
+				img: 'assets/img/bonobos/5-image.jpg',
+				fact: `
+					At Bonobos' Guideshop locations,
+					you can schedule an appointment
+					with a stylist. The kicker? No inventory.
+					The clothes are sent straight to the buyer's home.
+				`
+			},
+			{
+				type: TextSlideComponent,
+				logo: 'assets/img/Bonobos.png',
+				product: 'assets/img/bonobos/text-product.png',
+				name: 'Bonobos',
+				code: 'FAMILY'
 			}
 		]
 	}

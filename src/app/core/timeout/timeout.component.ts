@@ -91,6 +91,7 @@ export class TimeoutComponent {
 			this.stopCountdown();
 			this.resetTimer();
 		}
+		//console.log('hiding modal');
 		this.showModal = false;
 	}
 
@@ -115,8 +116,11 @@ export class TimeoutComponent {
 	 */
 	public showAlert(): void {
 		this.timer.unsubscribe();
-		this.startCountdown();
 		this.showModal = true;
+
+		//console.log('showModal=', this.showModal);
+
+		this.startCountdown();
 	}
 
 	/**
@@ -127,6 +131,10 @@ export class TimeoutComponent {
 	 * @memberOf TimeoutComponent
 	 */
 	public startCountdown(): Subscription {
+		if (this.countdown) {
+			this.countdown.unsubscribe();
+		}
+
 		this.currentCountdownNumber = this.countdownDelay / 1000;
 		return this.countdown = Observable.interval(1000)
 			.subscribe(data => {
@@ -147,9 +155,16 @@ export class TimeoutComponent {
 	 * @memberOf TimeoutComponent
 	 */
 	public startTimer(): Subscription {
+		//console.log('starting timer');
+		if (this.timer) {
+			//console.log('clearing old timer first');
+			this.timer.unsubscribe();
+		}
+
 		return this.timer = Observable.interval(this.delay)
 			.subscribe(data => {
 				if (this.shouldShowAlert()) {
+					//console.log('Should show alert');
 					this.showAlert();
 				}
 			});
@@ -163,6 +178,7 @@ export class TimeoutComponent {
 	 * @memberOf TimeoutComponent
 	 */
 	public stopTimer(): void {
+		//console.log('stopping timer');
 		this.timer.unsubscribe();
 	}
 

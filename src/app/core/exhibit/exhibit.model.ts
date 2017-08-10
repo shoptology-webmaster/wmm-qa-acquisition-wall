@@ -141,7 +141,7 @@ export const ExhibitsMock: Exhibit[] = [
 					<p>
 						Hayneedle employees consume over
 						<span class="accent">4,000 cookies</span> and
-						<span class="accent">5,000 daily bars</span> every year.
+						<span class="accent">5,000 Dairy Queen Dilly Bars</span> every year.
 					</p>
 				`
 			},
@@ -364,7 +364,7 @@ export const ExhibitsMock: Exhibit[] = [
 		]
 	},
 	{
-		name: 'Bonobos',
+		name: 'Walmart.com',
 		color: '#0284C5',
 		logo: 'assets/img/Walmart.png',
 		slides: [
@@ -434,6 +434,97 @@ export const ExhibitsMock: Exhibit[] = [
 				logo: 'assets/img/Walmart.png',
 				product: 'assets/img/walmart/text-product.png',
 				name: 'Walmart',
+				code: 'FAMILY'
+			}
+		]
+	},
+	{
+		name: 'SamsClub',
+		color: '#1C447E',
+		logo: 'assets/img/Sams.png',
+		slides: [
+			{
+				type: ProductSlideComponent,
+				accent: '#46A4F3',
+				logo: 'assets/img/Sams.png',
+				title: 'Savings made simple',
+				desc: `
+						Sam’s Club is a membership-only
+						warehouse chain selling a variety of
+						bulk grocery items, electronics and
+						home goods. Over the years, Sam’s
+						Club has continually innovated. Current
+						efforts are focused on SamsClub.com,
+						where shoppers can find an expansive
+						selection along with free in-store
+						pickup for online orders.
+				`,
+				product: 'assets/img/sams/product-shot.png'
+			},
+			{
+				type: FactBottomSlideComponent,
+				img: 'assets/img/sams/2-image.jpg',
+				fact: `
+					Sam’s Club members save
+					daily on groceries, tires, furniture and more.
+				`
+			},
+			{
+				type: FactTopSlideComponent,
+				img: 'assets/img/sams/3-image.png',
+				fact: `
+					<p>
+						Shoppers are going bananas for Sam’s Club.
+						Strawberries and bananas are the most popular
+						items bought on Scan & Go. Sam’s Club
+						sells <span class="accent">more than 10,000 lb.</span> of
+						each fruit per day across the nation.
+					</p>
+				`
+			},
+			{
+				type: FactTopSlideComponent,
+				img: 'assets/img/sams/4-image.png',
+				fact: `
+					<p>
+						Sam’s Club’s <span class="accent">Scan & Go app</span>,
+						the first of its kind, gives shoppers
+						the freedom to skip the checkout by
+						scanning items while they shop and
+						<span class="accent">paying with a tap</span> on their smartphone.
+					</p>
+				`
+			},
+			{
+				type: FactTopSlideComponent,
+				img: 'assets/img/sams/5-image.png',
+				fact: `
+					<p>
+						Club Pickup allows members to <span class="accent">order online</span>,
+						pull into a designated lane and have their
+						purchase loaded directly into their
+						vehicle. Sound familiar? It's just like
+						Walmart’s new Grocery Pickup service—only
+						<span class="accent">Club Pickup started way back in 2000.</span>
+					</p>
+				`
+			},
+			{
+				type: FactBottomSlideComponent,
+				img: 'assets/img/sams/6-image.jpg',
+				fact: `
+					One of the biggest sellers on SamsClub.com
+					is K-Cup&reg; Pods. Last year 32,052,898 individual K-Cups were sold.
+					If you were to lay them out end to end,
+					the line would stretch 759 miles
+					(from Bentonville, AR, to Denver, CO)!
+				`
+			},
+			{
+				type: TextSlideComponent,
+				logo: 'assets/img/Sams.png',
+				product: 'assets/img/sams/text-product.png',
+				name: 'Sam\'s Club',
 				code: 'FAMILY'
 			}
 		]

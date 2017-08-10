@@ -41,8 +41,8 @@ export class CrashReportingService {
 		// Raven.setTransport( (options) => {
 		// 	this.transportToRaven(options);
 		// });
+		this.captureMessage('Starting Up');
 	}
-
 
 	/**
 	 * Capture a breadcrumb event
@@ -55,14 +55,14 @@ export class CrashReportingService {
 	 *
 	 * @memberOf CrashReportingService
 	 */
-	public captureBreadCrumb(message: string, category?: string, level: string = 'info'): void {
-		Raven.captureBreadcrumb({
+	public captureBreadCrumb(message: string, category?: string, level: Raven.LogLevel = 'info'): void {
+		let bc: Raven.Breadcrumb = {
 			message: message,
 			category: category || 'general',
 			level: level
-		});
+		};
+		Raven.captureBreadcrumb(bc);
 	}
-
 
 	/**
 	 * Log a message
@@ -78,7 +78,6 @@ export class CrashReportingService {
 		Raven.captureMessage(message, options);
 	}
 
-
 	/**
 	 * Log an exception
 	 *
@@ -93,7 +92,6 @@ export class CrashReportingService {
 		Raven.captureException(error, options);
 	}
 
-
 	/**
 	 * Set the user for this session
 	 *
@@ -107,7 +105,6 @@ export class CrashReportingService {
 		return Raven.setUserContext(user);
 	}
 
-
 	/**
 	 * Set any extra contexts for our messages and errors
 	 *
@@ -120,7 +117,6 @@ export class CrashReportingService {
 	public setExtraContext(obj: Object): Object {
 		return Raven.setExtraContext(obj);
 	}
-
 
 	/**
 	 * Configure Raven to send errors to our API
@@ -158,7 +154,6 @@ export class CrashReportingService {
 			})
 	}
 }
-
 
 /**
  * Override the default ErrorHandler to capture and send issues to Sentry

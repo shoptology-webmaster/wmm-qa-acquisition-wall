@@ -99,6 +99,17 @@ ko-exhibit {
 		}
 	}
 
+	ion-slides.SamsClub {
+		.accent {
+			color: #46A4F3;
+		}
+		.swiper-slide product-slide {
+			.desc {
+				padding: 0 10vw 0vmax;
+			}
+		}
+	}
+
 	.swiper-pagination-bullet {
 		width: 15px;
     	height: 15px;

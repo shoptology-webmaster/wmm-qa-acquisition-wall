@@ -9,6 +9,7 @@ import { PassivePage } from '../passive/passive.page';
 import { SetupPage } from '../setup/setup.page';
 import { NavService } from '../../core/nav/nav.service';
 import { ReloadService } from '../../core/reload/reload.service';
+import { CrashReportingService } from '../../core/crash-reporting/crash-reporting.service';
 
 
 /**
@@ -29,7 +30,8 @@ export class LoadPage {
 		public navCtrl: NavController,
 		public navService: NavService,
 		public reloadService: ReloadService,
-		private storage: Storage
+		private storage: Storage,
+		private crashReportingService: CrashReportingService
 	) {}
 
 	ionViewWillEnter() {
@@ -129,6 +131,13 @@ export class LoadPage {
 				if(tags.customfield.KIOSK_NUMBER) {
 					this.storage.set('kioskNumber', tags.customfield.KIOSK_NUMBER)
 						.then(() => {
+							this.crashReportingService.captureMessage('Kiosk ' + tags.customfield.KIOSK_NUMBER + ' starting up.', {
+								data: {
+									tags: {
+										kiosk: tags.customfield.KIOSK_NUMBER
+									}
+								}
+							});
 							resolve();
 						});
 				} else {

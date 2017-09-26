@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { CoreModule } from './core/core.module';
 import { PagesModule } from './pages/pages.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,14 +18,14 @@ import { MyApp } from './app.component';
   ],
   imports: [
     BrowserModule,
-	BrowserAnimationsModule,
-	HttpModule,
-	PagesModule,
-	CoreModule,
-	IonicStorageModule.forRoot(),
+    BrowserAnimationsModule,
+    HttpModule,
+    PagesModule,
+    CoreModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp, {
-		swipeBackEnabled: false
-	})
+		  swipeBackEnabled: false
+	  })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,6 +34,7 @@ import { MyApp } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
+    GoogleAnalytics,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

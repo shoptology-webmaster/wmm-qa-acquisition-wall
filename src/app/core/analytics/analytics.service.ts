@@ -1,7 +1,9 @@
+import { CrashReportingService } from './../crash-reporting/crash-reporting.service';
 import { environment } from './../../../environment/environment';
 import { Subscription } from 'rxjs';
 import { Injectable, Inject, forwardRef } from '@angular/core';
 
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { DeviceService } from '../device/device.service';
 
 /**
@@ -15,11 +17,12 @@ export class AnalyticsService {
 	public sessionId: string;
 	public subscription: Subscription;
 	public kioskNumber: number = 0;
-	public ga: any = window['ga'];
 
 	constructor(
 		@Inject(forwardRef(() => DeviceService))
-		private deviceService: DeviceService
+		private deviceService: DeviceService,
+		private crashReportingService: CrashReportingService,
+		private ga: GoogleAnalytics
 	) {
 		this.deviceService.getKioskNumber()
 			.then((kioskNumber) => {
@@ -27,7 +30,15 @@ export class AnalyticsService {
 			});
 
 		if (environment.analytics) {
-			this.ga.startTrackerWithId(environment.googleAnalyticsId);
+			setTimeout(() => {
+				try {
+					this.ga.startTrackerWithId(environment.googleAnalyticsId);
+				} catch (e) {
+					this.crashReportingService.captureMessage('GA not registered properly', {
+						extra: e
+					});
+				}
+			}, 3000);
 		}
 
 	}
@@ -38,20 +49,25 @@ export class AnalyticsService {
 	 * @memberOf AnalyticsService
 	 */
 	startSession(forceNewSession?: boolean): void {
-		if (!environment.analytics) {
+		if (!environment.analytics || !this.ga) {
 			console.log('analytics disabled');
 			return;
 		}
+
 		if (!this.sessionId) {
-			console.log('starting new session');
 			this.sessionId = Date.now().toString();
-			//this.ga('set', 'dimension1', this.kioskNumber);
-			//this.ga('send', 'pageview', {'sessionControl': 'start'});
-			this.ga.setUserId(this.sessionId, 1);
-			this.ga.setVar('sc', 'start');
-			this.ga.addCustomDimension(1, this.kioskNumber.toString());
+			try {
+				this.ga.setUserId(this.sessionId);
+				this.ga.trackEvent('session', 'start', '', 1, true);
+				this.ga.addCustomDimension(1, this.kioskNumber.toString());
+
+			} catch (e) {
+				this.crashReportingService.captureMessage('GA not registered properly', {
+					extra: e
+				});
+			}
+
 		} else if (forceNewSession) {
-			console.log('forcing new session');
 			this.stopSession();
 			this.startSession();
 		}
@@ -90,9 +106,13 @@ export class AnalyticsService {
 		}
 
 		if (environment.analytics) {
-			console.log('sending event');
-			//this.ga('send', 'event', obj);
-			this.ga.trackEvent(category, action, label, val);
+			try {
+				this.ga.trackEvent(category, action, label, val);
+			} catch (e) {
+				this.crashReportingService.captureMessage('GA not registered properly', {
+					extra: e
+				});
+			}
 		}
 	}
 
@@ -109,15 +129,13 @@ export class AnalyticsService {
 		this.startSession();
 
 		if (environment.analytics) {
-			console.log('sending pageview');
-			// this.ga('send', {
-			// 	hitType: 'pageView',
-			// 	page: pathname,
-			// 	user: this.sessionId
-			// });
-			this.ga.trackView(pathname);
-			//this.ga.setVar('dp', pathname);
-			//this.ga.trackEvent('page', 'view', pathname);
+			try {
+				this.ga.trackView(pathname);
+			} catch (e) {
+				this.crashReportingService.captureMessage('GA not registered properly', {
+					extra: e
+				});
+			}
 		}
 	}
 
@@ -129,17 +147,13 @@ export class AnalyticsService {
 	 * @memberOf AnalyticsService
 	 */
 	stopSession(): void {
-		if (!environment.analytics) {
+		if (!environment.analytics || !this.ga) {
 			console.log('analytics disabled');
 			return;
 		}
+
 		if (this.sessionId) {
-			console.log('stopping session');
-			//this.ga('send', 'pageview', {'sessionControl': 'end'});
-			//this.ga('set', 'userId', '');
 			this.sessionId = undefined;
-			this.ga.setVar('sc', 'end');
-			this.ga.setUserId(this.sessionId);
 		}
 	}
 

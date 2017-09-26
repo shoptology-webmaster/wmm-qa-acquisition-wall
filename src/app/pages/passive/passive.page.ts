@@ -82,16 +82,14 @@ export class PassivePage {
 				} else {
 					kioskNumber = 0;
 				}
-				this.kioskNumber = kioskNumber;
-				console.log(kioskNumber);
+
+				if(this.videoUrl !== this.videoUrls[kioskNumber]) {
+					this.videoUrl = this.videoUrls[kioskNumber];
+				}
+
 				try {
-					console.log('here we are');
-					console.log(this.loopVideos);
-					this.loopVideos.forEach((lv) => {
-						console.log(lv.nativeElement);
-						lv.nativeElement.play();
-					});
-					//this.loopVideo.nativeElement.play();
+					this.loopVideo.nativeElement.currentTime = 0;
+					this.loopVideo.nativeElement.play();
 				} catch(err) {
 					console.log(err);
 				}

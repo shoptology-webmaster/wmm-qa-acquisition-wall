@@ -80,7 +80,7 @@ export class ExhibitPage {
 
 	goToMenu() {
 		this.analyticsService.sendEvent('nav', 'click', 'goToMenu');
-		this.navCtrl.push(ChooseSlidePage);
+		this.navCtrl.pop();
 	}
 
 }

@@ -74,12 +74,9 @@ export class TimeoutComponent {
 	 * @memberOf TimeoutComponent
 	 */
 	public goToPassive(): void {
-<<<<<<< HEAD
-=======
 		if(this.timer) {
 			this.timer.unsubscribe();
 		}
->>>>>>> e829acd06d379b8928640ba78b08b718e763adc9
 		this.navCtrl.popToRoot();
 	}
 
@@ -151,7 +148,7 @@ export class TimeoutComponent {
 					this.stopCountdown();
 				}
 			});
-		
+
 		return this.countdown;
 	}
 

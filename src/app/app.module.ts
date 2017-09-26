@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { CoreModule } from './core/core.module';
 import { PagesModule } from './pages/pages.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,7 +33,8 @@ import { MyApp } from './app.component';
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+	SplashScreen,
+	GoogleAnalytics,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

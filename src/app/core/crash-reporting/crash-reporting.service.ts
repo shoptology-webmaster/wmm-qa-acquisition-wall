@@ -55,8 +55,8 @@ export class CrashReportingService {
 	 *
 	 * @memberOf CrashReportingService
 	 */
-	public captureBreadCrumb(message: string, category?: string, level: Raven.LogLevel = 'info'): void {
-		let bc: Raven.Breadcrumb = {
+	public captureBreadCrumb(message: string, category?: string, level: string = 'info'): void {
+		let bc = {
 			message: message,
 			category: category || 'general',
 			level: level

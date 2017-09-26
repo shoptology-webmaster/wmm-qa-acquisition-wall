@@ -113,7 +113,7 @@ export class LoadPage {
 	 * @memberOf LoadComponent
 	 */
 	goToPassive(): void {
-		this.navCtrl.push(PassivePage);
+		this.navCtrl.setRoot(PassivePage);
 	}
 
 	/**

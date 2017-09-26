@@ -77,8 +77,12 @@ export class PassivePage {
 					kioskNumber = 0;
 				}
 
-				this.videoUrl = this.videoUrls[kioskNumber];
+				if(this.videoUrl !== this.videoUrls[kioskNumber]) {
+					this.videoUrl = this.videoUrls[kioskNumber];
+				}
+
 				try {
+					this.loopVideo.nativeElement.currentTime = 0;
 					this.loopVideo.nativeElement.play();
 				} catch(err) {
 					console.log(err);

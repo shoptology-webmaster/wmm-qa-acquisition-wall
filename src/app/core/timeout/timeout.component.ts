@@ -74,7 +74,10 @@ export class TimeoutComponent {
 	 * @memberOf TimeoutComponent
 	 */
 	public goToPassive(): void {
-		this.navCtrl.push(PassivePage);
+		if(this.timer) {
+			this.timer.unsubscribe();
+		}
+		this.navCtrl.popToRoot();
 	}
 
 	/**
@@ -136,7 +139,7 @@ export class TimeoutComponent {
 		}
 
 		this.currentCountdownNumber = this.countdownDelay / 1000;
-		return this.countdown = Observable.interval(1000)
+		this.countdown = Observable.interval(1000)
 			.subscribe(data => {
 				this.currentCountdownNumber--;
 				if (this.currentCountdownNumber <= 0) {
@@ -145,6 +148,8 @@ export class TimeoutComponent {
 					this.stopCountdown();
 				}
 			});
+		
+		return this.countdown;
 	}
 
 	/**

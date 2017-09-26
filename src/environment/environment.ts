@@ -3,7 +3,7 @@ export const environment = {
 	googleAnalyticsId: 'UA-73912844-2',
 	crashReporting: true,
 	production: true,
-	version: '1.5.5',
+	version: '1.5.7',
 	analytics: true,
 	useProxy: false,
 	serviceWorkers: false,

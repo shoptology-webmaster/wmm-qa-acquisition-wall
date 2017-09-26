@@ -75,7 +75,8 @@ export class SetupPage {
 	 * @memberOf SetupPage
 	 */
 	public goToPassive(): void {
-		this.navCtrl.push(PassivePage);
+		//this.navCtrl.push(PassivePage);
+		this.navCtrl.setRoot(PassivePage);
 	}
 
 }

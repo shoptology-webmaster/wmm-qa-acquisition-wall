@@ -74,7 +74,7 @@ export class TimeoutComponent {
 	 * @memberOf TimeoutComponent
 	 */
 	public goToPassive(): void {
-		this.navCtrl.push(PassivePage);
+		this.navCtrl.popToRoot();
 	}
 
 	/**

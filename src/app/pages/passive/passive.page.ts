@@ -1,6 +1,6 @@
 import { Storage } from '@ionic/storage';
 import { ChooseSlidePage } from './../choose-slide/choose-slide.page';
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChildren, ContentChildren, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { NavService } from '../../core/nav/nav.service';
@@ -20,14 +20,20 @@ import { DeviceService } from './../../core/device/device.service';
 	templateUrl: './passive.page.html'
 })
 export class PassivePage {
+	@ViewChildren('loopVideo') loopVideos;
+	// @ViewChild('loopVideo1') loopVideo1: ElementRef;
+	// @ViewChild('loopVideo2') loopVideo2: ElementRef;
+	// @ViewChild('loopVideo3') loopVideo3: ElementRef;
 
-	@ViewChild('loopVideo') loopVideo: ElementRef;
 	public videoUrl: string = '';
+	public kioskNumber: Number = 1;
 	public videoUrls: string[] = [
 		'assets/videos/wm-moosejaw.mp4',
 		'assets/videos/shoes-haystack.mp4',
 		'assets/videos/jet-modcloth.mp4',
 	];
+
+	private loopVideo: ElementRef;
 
 	constructor(
 		private navCtrl: NavController,
@@ -76,10 +82,16 @@ export class PassivePage {
 				} else {
 					kioskNumber = 0;
 				}
-
-				this.videoUrl = this.videoUrls[kioskNumber];
+				this.kioskNumber = kioskNumber;
+				console.log(kioskNumber);
 				try {
-					this.loopVideo.nativeElement.play();
+					console.log('here we are');
+					console.log(this.loopVideos);
+					this.loopVideos.forEach((lv) => {
+						console.log(lv.nativeElement);
+						lv.nativeElement.play();
+					});
+					//this.loopVideo.nativeElement.play();
 				} catch(err) {
 					console.log(err);
 				}
@@ -105,7 +117,7 @@ export class PassivePage {
 		this.analyticsService.startSession();
 		this.analyticsService.sendEvent('Passive', 'tap', 'GoToChooseSlide');
 		this.reloadService.stopTimer();
-		this.loopVideo.nativeElement.pause();
+		this.loopVideos.forEach((lv) => { lv.nativeElement.pause() });
 		this.navCtrl.push(ChooseSlidePage);
 	}
 

@@ -47,6 +47,7 @@ export class PassivePage {
 		// If we haven't configured the root page, set it up
 		// mark it as set in navService
 		this.reset();
+		this.reloadService.startTimer();
 
 		// this.deviceService.isUpToDate()
 		// 	.subscribe((result) => {
@@ -91,7 +92,7 @@ export class PassivePage {
 	}
 
 	ionViewWillLeave() {
-
+		this.reloadService.stopTimer();
 	}
 
 

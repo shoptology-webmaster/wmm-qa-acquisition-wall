@@ -8,7 +8,7 @@ export const environment = {
 	useProxy: false,
 	serviceWorkers: false,
 	pageViewReportBlacklist: [],
-	inactiveTimeBeforeUpdating: 30,
+	inactiveTimeBeforeUpdating: 5, // In minutes
 	timerSampleSize: 30,
 	sentryProject: 'https://646a74f6ea4c4b8988e55d0b53f7e02c@sentry.io/169400',
 	timeoutComponentConfig: {

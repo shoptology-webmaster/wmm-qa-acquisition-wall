@@ -1,6 +1,8 @@
 <ion-content class="no-scroll">
 
-	<video #loopVideo [src]="videoUrl" (click)="goToChooseSlide()" autoplay loop></video>
+	<video #loopVideo *ngIf="kioskNumber === 0" src="assets/videos/wm-moosejaw.mp4" poster="assets/img/poster.jpg" (click)="goToChooseSlide()" autoplay loop></video>
+	<video #loopVideo *ngIf="kioskNumber === 1" src="assets/videos/shoes-haystack.mp4" poster="assets/img/poster.jpg" (click)="goToChooseSlide()" autoplay loop></video>
+	<video #loopVideo *ngIf="kioskNumber === 2" src="assets/videos/jet-modcloth.mp4" poster="assets/img/poster.jpg" (click)="goToChooseSlide()" autoplay loop></video>
 
 </ion-content>
 

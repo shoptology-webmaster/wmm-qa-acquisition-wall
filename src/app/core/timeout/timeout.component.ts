@@ -148,7 +148,7 @@ export class TimeoutComponent {
 					this.stopCountdown();
 				}
 			});
-		
+
 		return this.countdown;
 	}
 

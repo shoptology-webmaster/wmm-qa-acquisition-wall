@@ -71,7 +71,7 @@ export class NavComponent {
 	}
 
 	/**
-	 * Go back to the passive page.
+	 * Go back to the home page.
 	 *
 	 * @returns {void}
 	 *
@@ -90,9 +90,10 @@ export class NavComponent {
 		}
 
 		let view = this.navCtrl.getActive();
-		this.navCtrl.push(ChooseSlidePage, {}, {
-			direction: 'back'
-		});
+		this.navCtrl.pop();
+		// this.navCtrl.push(ChooseSlidePage, {}, {
+		// 	direction: 'back'
+		// });
 		if (this.navService.isSearchModalOpen) {
 			this.navService.hideSearchModal();
 		}

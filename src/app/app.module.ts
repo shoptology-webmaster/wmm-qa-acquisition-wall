@@ -18,14 +18,14 @@ import { MyApp } from './app.component';
   ],
   imports: [
     BrowserModule,
-	BrowserAnimationsModule,
-	HttpModule,
-	PagesModule,
-	CoreModule,
-	IonicStorageModule.forRoot(),
+    BrowserAnimationsModule,
+    HttpModule,
+    PagesModule,
+    CoreModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp, {
-		swipeBackEnabled: false
-	})
+		  swipeBackEnabled: false
+	  })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,8 +33,8 @@ import { MyApp } from './app.component';
   ],
   providers: [
     StatusBar,
-	SplashScreen,
-	GoogleAnalytics,
+    SplashScreen,
+    GoogleAnalytics,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

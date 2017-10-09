@@ -1,3 +1,4 @@
+import { HeartbeatService } from './heartbeat/heartbeat.service';
 import { ExhibitService } from './exhibit/exhibit.service';
 import { PagesModule } from './../pages/pages.module';
 import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
@@ -35,6 +36,7 @@ import { ReloadService } from './reload/reload.service';
 		AnalyticsService,
 		CrashReportingService,
 		ExhibitService,
+		HeartbeatService,
 		{ provide: ErrorHandler, useClass: CrashReportingErrorHandler }
 	]
 })

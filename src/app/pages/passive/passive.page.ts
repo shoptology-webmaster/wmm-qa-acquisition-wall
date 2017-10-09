@@ -1,3 +1,4 @@
+import { HeartbeatService } from './../../core/heartbeat/heartbeat.service';
 import { Storage } from '@ionic/storage';
 import { ChooseSlidePage } from './../choose-slide/choose-slide.page';
 import { Component, ViewChild, ContentChildren, ElementRef } from '@angular/core';
@@ -40,7 +41,8 @@ export class PassivePage {
 		private crashReportingService: CrashReportingService,
 		private reloadService: ReloadService,
 		private deviceService: DeviceService,
-		private storage: Storage
+		private storage: Storage,
+		private heartbeatService: HeartbeatService
 	) {}
 
 	ionViewWillEnter() {
@@ -96,6 +98,8 @@ export class PassivePage {
 				} catch(err) {
 					console.log(err);
 				}
+
+				this.heartbeatService.start('WMM Acquisition', kioskNumber);
 			});
 	}
 

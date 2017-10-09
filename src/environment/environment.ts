@@ -10,7 +10,7 @@ export const environment = {
 	pageViewReportBlacklist: [],
 	inactiveTimeBeforeUpdating: 10, // In minutes
 	timerSampleSize: 30,
-	sentryProject: 'https://646a74f6ea4c4b8988e55d0b53f7e02c@sentry.io/169400',
+	sentryProject: 'http://646a74f6ea4c4b8988e55d0b53f7e02c@sentry.io/169400',
 	heartbeatHost: 'http://shp-device-monitor.herokuapp.com',
 	timeoutComponentConfig: {
 		title: '',

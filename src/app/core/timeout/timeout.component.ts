@@ -26,6 +26,7 @@ export class TimeoutComponent {
 
 	public alert: Alert;
 	public buttonText: string;
+	public pageChangeSubscription: Subscription;
 	public countdown: Subscription;
 	public countdownDelay: number;
 	public currentCountdownNumber: number;
@@ -59,7 +60,7 @@ export class TimeoutComponent {
 		}
 
 		// Reset the timer on page changes
-		this.navCtrl.viewDidEnter.subscribe((view) => {
+		this.pageChangeSubscription = this.navCtrl.viewDidEnter.subscribe((view) => {
 			this.resetTimer();
 		});
 
@@ -76,6 +77,12 @@ export class TimeoutComponent {
 	public goToPassive(): void {
 		if(this.timer) {
 			this.timer.unsubscribe();
+		}
+		if(this.pageChangeSubscription) {
+			this.pageChangeSubscription.unsubscribe();
+		}
+		if(this.countdown) {
+			this.countdown.unsubscribe();
 		}
 		this.navCtrl.popToRoot();
 	}

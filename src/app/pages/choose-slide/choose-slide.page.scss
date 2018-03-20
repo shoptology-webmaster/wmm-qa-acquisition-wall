@@ -23,6 +23,13 @@ ko-choose-slide {
 		align-items: center;
 		justify-content: center;
 		flex-wrap: wrap;
+
+		&.nine {
+			.container {
+				width: 14vmax;
+				height: 14vmax;
+			}
+		}
 	}
 
 	.container {

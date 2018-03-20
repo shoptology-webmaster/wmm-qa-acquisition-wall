@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
 	selector: 'product-slide',
 	template: `
 		<div *ngIf="isActive | async" class="container">
-			<img @top class="logo" [src]="data.logo">
-			<div @top class="title" [style.color]="data.accent">{{ data.title }}</div>
-			<div @top class="desc">{{ data.desc }}</div>
-			<img @bottom class="product" [src]="data.product">
+			<img @top class="logo" [src]="data.Logo | getCacheUrl | async">
+			<div @top class="title" [style.color]="">{{ data.TitleText }}</div>
+			<div @top class="desc" [innerHTML]="data.BodyText"></div>
+			<img @bottom class="product" [src]="data.Image | getCacheUrl | async">
 		</div>
 	`,
 	animations: [

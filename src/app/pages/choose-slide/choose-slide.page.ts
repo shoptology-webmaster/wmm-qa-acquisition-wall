@@ -1,7 +1,7 @@
 import { SetupPage } from './../setup/setup.page';
 import { ExhibitService } from './../../core/exhibit/exhibit.service';
 import { Observable } from 'rxjs';
-import { Exhibit } from './../../core/exhibit/exhibit.model';
+import { KioskData, ExhibitState, Company } from './../../core/exhibit/exhibit.model';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -20,8 +20,7 @@ import { ExhibitPage } from './../exhibit/exhibit.page';
 	templateUrl: './choose-slide.page.html'
 })
 export class ChooseSlidePage {
-
-	public exhibits: Observable<Exhibit[]>;
+	public kioskData: Observable<KioskData>;
 	public accessibilityMode: boolean = false;
 	public setup: {one: boolean, two: boolean} = {
 		one: false,
@@ -41,7 +40,7 @@ export class ChooseSlidePage {
 		this.navService.options.showHome = false;
 		this.navService.setAccessibilityMode(true);
 
-		this.exhibits = this.exhibitService.select('exhibits');
+		this.kioskData = this.exhibitService.select('KioskData');
 
 		this.analyticsService.sendPageview('/choose-slide');
 	}
@@ -50,11 +49,12 @@ export class ChooseSlidePage {
 		this.accessibilityMode = !this.accessibilityMode;
 	}
 
-	goToExhibit(exhibit: Exhibit) {
-		this.analyticsService.sendEvent('nav', 'click', exhibit.name);
+	goToExhibit(company: Company, kioskData: KioskData) {
+		this.analyticsService.sendEvent('nav', 'click', company.CompanyName);
 
 		this.navCtrl.push(ExhibitPage, {
-			exhibit: exhibit
+			exhibit: company,
+			textNumber: kioskData.TextNumber
 		});
 	}
 

@@ -9,27 +9,27 @@ export interface SlidesState {
 @Injectable()
 export class SlidesService {
 	private subject: BehaviorSubject<SlidesState>;
-    public store: Observable<SlidesState>;
+	public store: Observable<SlidesState>;
 
-	 constructor() {
-        this.subject = new BehaviorSubject<SlidesState>({
+		constructor() {
+		this.subject = new BehaviorSubject<SlidesState>({
 			currentSlide: 0
 		});
-        this.store = this.subject.asObservable();
-    }
+		this.store = this.subject.asObservable();
+	}
 
 	/**
-     * Pluck something out of the store
-     *
-     * @template T
-     * @param {string} name
-     * @returns {Observable<T>}
-     *
-     * @memberof QuizService
-     */
-    public select<T>(name: string): Observable<T> {
-        return this.store.pluck(name);
-    }
+	 * Pluck something out of the store
+	 *
+	 * @template T
+	 * @param {string} name
+	 * @returns {Observable<T>}
+	 *
+	 * @memberof QuizService
+	 */
+	public select<T>(name: string): Observable<T> {
+		return this.store.pluck(name);
+	}
 
 	public setCurrentSlide(num: number) {
 		let value = this.subject.value;

@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 	selector: 'fact-bottom-slide',
 	template: `
 		<div *ngIf="isActive | async" class="container">
-			<img @top class="img" [src]="data.img">
-			<div @bottom  class="fact" [innerHTML]="data.fact"></div>
+			<img @top class="img" [src]="data.Image | getCacheUrl | async">
+			<div @bottom  class="fact" [innerHTML]="data.BodyText"></div>
 		</div>
 	`,
 	animations: [

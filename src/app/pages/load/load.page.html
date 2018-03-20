@@ -1,10 +1,20 @@
 <ion-content padding>
-	<div class="loading-logo-wrap">
-		<div class="loading-logo"></div>
-	</div>
+	<div class="loading-status" *ngIf="!isError">
+		<div class="loading-logo-wrap">
+			<div class="loading-logo"></div>
+		</div>
 
-	<div class="spinner-wrap">
-		<ion-spinner name="crescent"></ion-spinner>
+		<div class="spinner-wrap">
+			<ion-spinner name="crescent"></ion-spinner>
+		</div>
+		<h2>Updating.<br>We’ll be right back...</h2>
 	</div>
-	<h2>Updating.<br>We’ll be right back...</h2>
+	<div class="loading-error" *ngIf="isError">
+		<h2>
+			{{errorMessage}}
+		</h2>
+		<button (click)="reload();" ion-button>
+			Click to Reload
+		</button>
+	</div>
 </ion-content>

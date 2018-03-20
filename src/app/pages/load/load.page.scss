@@ -6,4 +6,23 @@ ko-load {
 	ion-spinner * {
 		stroke: #666 !important;
 	}
+
+	.loading-status {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		text-align: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	.loading-error {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		text-align: center;
+		justify-content: center;
+		flex-direction: column;
+	}
 }

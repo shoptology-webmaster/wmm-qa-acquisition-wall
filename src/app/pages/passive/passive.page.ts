@@ -73,20 +73,22 @@ export class PassivePage {
 
 		// Find the right video to play
 		this.storage.get('kioskNumber')
-			.then((kioskNumber) => {
+			.then((num) => {
 				if (
-					kioskNumber
-					&& kioskNumber < 4
-					&& kioskNumber > 0)
+					num
+					&& num < 4
+					&& num > 0)
 				{
-					kioskNumber--;
+					num--;
 				} else {
-					kioskNumber = 0;
+					num = 0;
 				}
 
-				if(this.videoUrl !== this.videoUrls[kioskNumber]) {
-					this.videoUrl = this.videoUrls[kioskNumber];
+				if(this.videoUrl !== this.videoUrls[num]) {
+					this.videoUrl = this.videoUrls[num];
 				}
+
+				this.kioskNumber = num;
 
 				try {
 					this.loopVideo.nativeElement.currentTime = 0;
@@ -99,7 +101,7 @@ export class PassivePage {
 					console.log(err);
 				}
 
-				this.heartbeatService.start('WMM Acquisition', kioskNumber);
+				this.heartbeatService.start('WMM Acquisition', num);
 			});
 	}
 

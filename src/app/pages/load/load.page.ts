@@ -4,7 +4,8 @@ import { NavController, Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 
-// import { APIService } from '../../core/api/api.service';
+import { ExhibitService } from '../../core/exhibit/exhibit.service';
+import { CacheService } from '../../core/cache/cache.service';
 import { PassivePage } from '../passive/passive.page';
 import { SetupPage } from '../setup/setup.page';
 import { NavService } from '../../core/nav/nav.service';
@@ -23,9 +24,19 @@ import { CrashReportingService } from '../../core/crash-reporting/crash-reportin
 	templateUrl: './load.page.html'
 })
 export class LoadPage {
+	public isError: boolean = false;
+	public errorMessage: string = '';
+
+	public downloadList = [];
+	public completedList = [];
+
+	private queueSubscription;
+	private completedSubscription;
+	private queueCompletedSubscription;
 
 	constructor(
-		// public apiService: APIService,
+		public exhibitService: ExhibitService,
+		public cacheService: CacheService,
 		public platform: Platform,
 		public navCtrl: NavController,
 		public navService: NavService,
@@ -52,7 +63,7 @@ export class LoadPage {
 
 
 		this.platform.ready().then(() => {
-			this.loadTags()
+			return this.loadTags()
 				.then((tags) => {
 					return this.insertTags(tags);
 				})
@@ -65,29 +76,29 @@ export class LoadPage {
 					if (undefinedInputs > 0) {
 						this.goToSetup();
 					} else {
-						this.goToPassive();
+						//this.goToPassive();
+						this.loadData();
 					}
 				});
 		});
+	}
 
+	ionViewWillLeave() {
+		if (this.queueSubscription) {
+			this.queueSubscription.unsubscribe();
+		}
 
+		if (this.completedSubscription) {
+			this.completedSubscription.unsubscribe();
+		}
 
+		if (this.queueCompletedSubscription) {
+			this.queueCompletedSubscription.unsubscribe();
+		}
+	}
 
-		// if (environment.serviceWorkers) {
-		// 	navigator.serviceWorker.register('./service-worker.js', {
-		// 		scope: './'
-		// 	})
-		// 	.then(this.waitUntilInstalled)
-		// 	.then(() => {
-		// 		// this.getConfigParams();
-		// 	})
-		// 	.catch((error) => {
-		// 		console.log(error);
-		// 		this.reloadService.reloadApp();
-		// 	});
-		// } else {
-		// 	// this.getConfigParams();
-		// }
+	public reload(): void {
+		window.location.reload(true);
 	}
 
 	/**
@@ -126,7 +137,6 @@ export class LoadPage {
 			// TODO: If we need to load multiple tags,
 			// add a loop here
 
-
 			if(tags.customfield) {
 				if(tags.customfield.KIOSK_NUMBER) {
 					this.storage.set('kioskNumber', tags.customfield.KIOSK_NUMBER)
@@ -147,7 +157,6 @@ export class LoadPage {
 				resolve();
 			}
 		});
-
 	}
 
 	/**
@@ -244,33 +253,114 @@ export class LoadPage {
 			});
 	}
 
-	/**
-	 * Promise to wait for service workers to be installed.
-	 *
-	 * @param {any} registration
-	 * @returns {Promise<any>}
-	 *
-	 * @memberOf LoadComponent
-	 */
-	waitUntilInstalled(registration): Promise<any> {
-		return new Promise(function(resolve, reject) {
-			if (registration.installing) {
-				// If the current registration represents the "installing" service worker, then wait
-				// until the installation step (during which the resources are pre-fetched) completes
-				// to display the file list.
-				registration.installing.addEventListener('statechange', function(e) {
-					if (e.target.state === 'installed') {
-						resolve();
-					} else if (e.target.state === 'redundant') {
-						reject();
+	private loadData(): void {
+		let assetList;
+
+		this.getKioskNumber()
+			.then((num) => {
+				return this.exhibitService.getExhibits(num);
+			})
+			.then((exhibits) => {
+				console.log(exhibits);
+				return this.exhibitService.getExhibitAssetList();
+			})
+			.then((assets) => {
+				assetList = assets;
+				return this.cacheService.clear();
+			})
+			.then(() => {
+				return this.cacheService.makeCacheDir();
+			})
+			.then(() => {
+				return this.cacheService.update(assetList, true);
+			})
+			.then((result) => {
+				console.log(result);
+
+				if(!result) {
+					this.goToPassive();
+					return;
+				}
+
+				this.queueSubscription = this.cacheService.queue.subscribe((queue) => {
+					this.downloadList = queue;
+				});
+
+				this.completedSubscription = this.cacheService.completed.subscribe((completed) => {
+					this.completedList = completed;
+				});
+
+				this.queueCompletedSubscription = this.cacheService.queueCompleted.subscribe((isComplete) => {
+					if (isComplete) {
+						this.goToPassive();
 					}
 				});
-			} else {
-				// Otherwise, if this isn't the "installing" service worker, then installation must have been
-				// completed during a previous visit to this page, and the resources are already pre-fetched.
-				// So we can show the list of files right away.
-				resolve();
-			}
+			})
+			.catch((err) => {
+				console.log(err);
+
+				this.isError = true;
+
+				if(err === 'server_error') {
+					this.errorMessage = 'Could not connect to server.';
+				}
+			});
+
+
+		// this.getAPIData()
+		// 	.then((data) => {
+		// 		console.log(data);
+		// 		return this.cacheAssets();
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log(err);
+
+		// 		this.isError = true;
+
+		// 		if(err === 'server_error') {
+		// 			this.errorMessage = 'Could not connect to server.';
+		// 		}
+
+		// 	});
+	}
+
+	// private getAPIData(): Promise<any> {
+	// 	return new Promise((resolve, reject) => {
+	// 		this.apiService.getExhibitData()
+	// 			.subscribe((data) => {
+	// 				if(typeof data === 'undefined') {
+	// 					// Attempt to load from filesystem?
+	// 					reject('server_error');
+	// 				} else {
+	// 					resolve(data);
+	// 				}
+	// 			}, (err) => {
+	// 				reject('server_error');
+	// 			});
+	// 	});
+	// }
+
+	private cacheAssets(apiData): Promise<any> {
+		return new Promise((resolve, reject) => {
+			let kioskNumber = 0;
+
+			this.getKioskNumber()
+				.then((num) => {
+					kioskNumber = num;
+					//return this.formatAssetList()
+				})
+		});
+	}
+
+	private getKioskNumber(): Promise<number> {
+		return new Promise((resolve, reject) => {
+			this.storage.get('kioskNumber')
+				.then((num) => {
+					resolve(num);
+				})
+				.catch((err) => {
+					resolve(0);
+				});
 		});
 	}
 }

@@ -24,21 +24,25 @@ export class NavComponent {
 
 	ngAfterViewInit() {
 		// Watch for all view changes
-		this.navCtrl.viewDidEnter.subscribe((view) => {
-			if (environment.pageViewReportBlacklist && environment.pageViewReportBlacklist.indexOf(view.component.name) === -1) {
-				//this.analyticsService.sendPageview(view.component.name);
-			}
-		});
+		// this.navCtrl.viewDidEnter.subscribe((view) => {
+		// 	if (environment.pageViewReportBlacklist && environment.pageViewReportBlacklist.indexOf(view.component.name) === -1) {
+		// 		//this.analyticsService.sendPageview(view.component.name);
+		// 	}
+		// });
 
-		this.navService.onGoBack
-			.subscribe(() => {
-				this.goBack();
-			});
+		// this.navService.onGoBack
+		// 	.subscribe(() => {
+		// 		this.goBack();
+		// 	});
 
-		this.navService.onGoHome
-			.subscribe(() => {
-				this.goHome();
-			});
+		// this.navService.onGoHome
+		// 	.subscribe(() => {
+		// 		this.goHome();
+		// 	});
+	}
+
+	ngOnDestroy() {
+
 	}
 
 	/**

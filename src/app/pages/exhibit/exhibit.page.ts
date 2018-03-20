@@ -1,7 +1,7 @@
 import { fadeInOut } from '../../core/animations';
 import { SlidesService } from './../../shared/slides.service';
 import { ChooseSlidePage } from './../choose-slide/choose-slide.page';
-import { Exhibit } from './../../core/exhibit/exhibit.model';
+import { Company } from './../../core/exhibit/exhibit.model';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides } from 'ionic-angular';
 
@@ -22,7 +22,8 @@ import { AnalyticsService } from '../../core/analytics';
 export class ExhibitPage {
 	@ViewChild(Slides) slides: Slides;
 
-	public exhibit: Exhibit;
+	public exhibit: Company;
+	public textNumber: number;
 	public currentIndex: number = 1;
 	public nextToMenu: boolean = false;
 	public showSwipeModal: boolean = true;
@@ -44,7 +45,11 @@ export class ExhibitPage {
 			this.exhibit = this.navParams.get('exhibit');
 		}
 
-		this.analyticsService.sendPageview('/exhibits/' + this.exhibit.name);
+		if (this.navParams.get('textNumber')) {
+			this.textNumber = this.navParams.get('textNumber');
+		}
+
+		this.analyticsService.sendPageview('/exhibits/' + this.exhibit.CompanyName);
 	}
 
 	ionViewDidEnter() {
@@ -69,7 +74,7 @@ export class ExhibitPage {
 		this.currentIndex = this.slides.getActiveIndex();
 		this.slidesService.setCurrentSlide(this.currentIndex);
 
-		this.analyticsService.sendPageview('/exhibits/' + this.exhibit.name + '/' + this.currentIndex);
+		this.analyticsService.sendPageview('/exhibits/' + this.exhibit.CompanyName + '/' + this.currentIndex);
 
 		if (this.currentIndex >= this.slides.length() - 1) {
 			this.nextToMenu = true;

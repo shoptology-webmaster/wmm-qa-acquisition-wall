@@ -8,13 +8,13 @@ import { Component } from '@angular/core';
 	selector: 'text-slide',
 	template: `
 		<div *ngIf="isActive | async" class="container">
-			<img @top class="logo" [src]="data.logo">
+			<img @top class="logo" [src]="data.Logo | getCacheUrl | async">
 			<div @top class="desc">
-				<p>Want to learn more about {{ data.name }}?</p>
-				<p>Text <span class="bold">WALMART {{ data.code }}</span> to <span class="bold">56512</span></p>
-				<p class="legal">(Message and data rates may apply.  Text STOP to unsubscribe.)</p>
+				<p>Want to learn more about {{ companyName }}?</p>
+				<p>Text <span class="bold">WALMART {{ data.TextKeyword }}</span> to <span class="bold">{{textNumber}}</span></p>
+				<p class="legal">(Message and data rates may apply. Text STOP to unsubscribe.)</p>
 			</div>
-			<img @bottom class="product" [src]="data.product">
+			<img @bottom class="product" [src]="data.Image | getCacheUrl | async">
 		</div>
 	`,
 	animations: [
@@ -25,6 +25,8 @@ import { Component } from '@angular/core';
 export class TextSlideComponent {
 	public data: Slide;
 	public idx: number;
+	public companyName: string;
+	public textNumber: string | number;
 	public isActive: Observable<boolean>;
 
 	constructor(
@@ -36,8 +38,10 @@ export class TextSlideComponent {
 			});
 	}
 
-	init(data:any, idx: number) {
+	init(data:any, idx: number, accentColor: any, companyName: string, textNumber: string | number) {
 		this.data = data;
 		this.idx = idx;
+		this.companyName = companyName;
+		this.textNumber = textNumber;
 	}
 }

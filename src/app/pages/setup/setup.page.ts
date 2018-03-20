@@ -4,6 +4,7 @@ import { Storage } from '@ionic/storage';
 
 import { NavController } from 'ionic-angular';
 import { PassivePage } from '../passive/passive.page';
+import { LoadPage } from '../load/load.page';
 
 /**
  * Allows the user to enter any data required for running the application.
@@ -64,11 +65,23 @@ export class SetupPage {
 			this.storage.set(key, val);
 		});
 
-		this.goToPassive();
+		//this.goToPassive();
+		this.goToLoad();
 	}
 
 	/**
-	 * Navigate tot he passive screen.
+	 * Navigate to the load screen.
+	 *
+	 * @returns {void}
+	 *
+	 * @memberOf SetupPage
+	 */
+	public goToLoad(): void {
+		this.navCtrl.setRoot(LoadPage);
+	}
+
+	/**
+	 * Navigate to the passive screen.
 	 *
 	 * @returns {void}
 	 *

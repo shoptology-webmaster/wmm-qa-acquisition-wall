@@ -53,62 +53,80 @@ ko-exhibit {
 
 	}
 
-	ion-slides.Jet {
-		.accent {
-			color: #CB68FF;
+	ion-slides {
+		.desc span.compact {
+			font-size: 2.2vmax;
+			line-height: 2.9vmax;
+			display: block;
 		}
-	}
+		.fact {
+			img.smaller {
+				width: 75%;
+				height: auto;
+			}
 
-	ion-slides.HayNeedle {
-		.big {
-			font-size: 7vmax;
-		}
-		.accent {
-			color: #61EAF6;
-		}
-	}
-
-	ion-slides.Modcloth {
-		.accent {
-			color: #E0BF90;
-		}
-		.fact img.smaller {
-			width: 75%;
-			height: auto;
-		}
-	}
-
-	ion-slides.Moosejaw {
-		.accent {
-			color: #FFA900;
-		}
-		.fact p.wide {
-			padding: 0 2vw;
-		}
-	}
-
-	ion-slides.Shoes {
-		.accent {
-			color: #9BB7FF;
-		}
-	}
-
-	ion-slides.Walmart {
-		.accent {
-			color: #FFC31C;
-		}
-	}
-
-	ion-slides.SamsClub {
-		.accent {
-			color: #46A4F3;
-		}
-		.swiper-slide product-slide {
-			.desc {
-				padding: 0 10vw 0vmax;
+			p.wide {
+				padding: 0 2vw;
 			}
 		}
 	}
+
+	// ion-slides.Jet {
+	// 	.accent {
+	// 		color: #CB68FF;
+	// 	}
+	// }
+
+	// ion-slides.HayNeedle {
+	// 	.big {
+	// 		font-size: 7vmax;
+	// 	}
+	// 	.accent {
+	// 		color: #61EAF6;
+	// 	}
+	// }
+
+	// ion-slides.Modcloth {
+	// 	.accent {
+	// 		color: #E0BF90;
+	// 	}
+	// 	.fact img.smaller {
+	// 		width: 75%;
+	// 		height: auto;
+	// 	}
+	// }
+
+	// ion-slides.Moosejaw {
+	// 	.accent {
+	// 		color: #FFA900;
+	// 	}
+	// 	.fact p.wide {
+	// 		padding: 0 2vw;
+	// 	}
+	// }
+
+	// ion-slides.Shoes {
+	// 	.accent {
+	// 		color: #9BB7FF;
+	// 	}
+	// }
+
+	// ion-slides.Walmart {
+	// 	.accent {
+	// 		color: #FFC31C;
+	// 	}
+	// }
+
+	// ion-slides.SamsClub {
+	// 	.accent {
+	// 		color: #46A4F3;
+	// 	}
+	// 	.swiper-slide product-slide {
+	// 		.desc {
+	// 			padding: 0 10vw 0vmax;
+	// 		}
+	// 	}
+	// }
 
 	.swiper-pagination-bullet {
 		width: 15px;

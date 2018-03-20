@@ -3,9 +3,9 @@
 	<div class="companies">
 		<h1>Choose a company</h1>
 
-		<div class="containers">
-			<div class="container" [style.background-color]="exhibit.color" *ngFor="let exhibit of exhibits | async" (click)="goToExhibit(exhibit)">
-				<img [src]="exhibit.logo">
+		<div class="containers" *ngIf="kioskData | async; let kioskData">
+			<div class="container" [style.background-color]="company.TileColor" *ngFor="let company of kioskData.Companies" (click)="goToExhibit(company, kioskData)">
+				<img [src]="company.TileLogo">
 			</div>
 		</div>
 	</div>

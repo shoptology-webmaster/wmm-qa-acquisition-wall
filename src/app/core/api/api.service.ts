@@ -44,6 +44,43 @@ export class APIService {
 		protected http: Http
 	) {}
 
+	public getExhibitData(): Observable<models.AcquisitionResponse> {
+		return this.getExhibitDataWithHttpInfo()
+			.map((response: Response) => {
+				if (response.status === 204) {
+					return undefined;
+				} else {
+					return response.json();
+				}
+			});
+	}
+
+	private getExhibitDataWithHttpInfo(): Observable<Response> {
+		const path = this.basePath + `/items.aspx`;
+
+		let queryParameters = new URLSearchParams();
+		let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+
+		// to determine the Content-Type header
+		let consumes: string[] = [
+			'application/json'
+		];
+
+		// to determine the Accept header
+		let produces: string[] = [
+			'application/json'
+		];
+
+		headers.set('Content-Type', 'application/json');
+
+		let requestOptions: RequestOptionsArgs = new RequestOptions({
+			method: RequestMethod.Get,
+			headers: headers
+		});
+
+		return this.http.request(path, requestOptions);
+	}
+
 	/**
 	 *
 	 * Extends object by coping non-existing properties.

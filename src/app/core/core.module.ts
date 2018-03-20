@@ -8,9 +8,11 @@ import { SharedModule } from './../shared/shared.module';
 
 import { NavComponent } from './nav/nav.component';
 import { NavService } from './nav/nav.service';
+import { APIService } from './api/api.service';
 import { DeviceService } from './device/device.service';
 import { AnalyticsService } from './analytics';
 import { CrashReportingService, CrashReportingErrorHandler } from './crash-reporting/crash-reporting.service';
+import { CacheService } from './cache/cache.service';
 import { TimeoutComponent } from './timeout/timeout.component';
 import { ReloadService } from './reload/reload.service';
 
@@ -31,6 +33,8 @@ import { ReloadService } from './reload/reload.service';
 	],
 	providers: [
 		NavService,
+		APIService,
+		CacheService,
 		DeviceService,
 		ReloadService,
 		AnalyticsService,

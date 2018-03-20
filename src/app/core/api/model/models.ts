@@ -1,3 +1,4 @@
+export * from './AcquisitionResponse';
 export * from './AnalyticsEventParams';
 export * from './AnalyticsPageParams';
 export * from './AnalyticsTimingParams';

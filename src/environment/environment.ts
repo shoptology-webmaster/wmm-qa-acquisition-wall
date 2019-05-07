@@ -1,6 +1,6 @@
 export const environment = {
 	appShortName: 'acquisitionWall',
-	apiUrl: 'https://www.walmartmuseum.com/api/acquisition',
+	apiUrl: 'https://walmartmuseum.qa.cap-hosting.com/api/acquisition',
 	googleAnalyticsId: 'UA-73912844-2',
 	crashReporting: true,
 	cacheAssets: true,
